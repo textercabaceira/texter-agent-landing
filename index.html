@@ -1624,7 +1624,7 @@ function renderGallery(){
     const th=document.createElement('div');
     th.className='gthumb'+(i===galIdx?' active':'');
     th.innerHTML=`<img src="${s.src}" alt="${s.title}" loading="lazy">`;
-    th.onclick=(()=>{const idx=i;return ()=>{galIdx=idx;renderGallery();}}})();
+    th.onclick=(()=>{const idx=i;return ()=>{galIdx=idx;renderGallery();}})();
     strip.appendChild(th);
   });
 }
