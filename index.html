@@ -43,6 +43,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 .aurora-gallery{background:radial-gradient(ellipse 75% 60% at 25% 35%,rgba(99,102,241,.28) 0%,transparent 60%),radial-gradient(ellipse 55% 75% at 75% 25%,rgba(6,182,212,.18) 0%,transparent 60%),radial-gradient(ellipse 60% 45% at 55% 85%,rgba(168,85,247,.15) 0%,transparent 60%),#020208}
 .aurora-hub{background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(99,102,241,.22) 0%,rgba(168,85,247,.1) 50%,transparent 75%),radial-gradient(ellipse 40% 40% at 15% 20%,rgba(6,182,212,.1) 0%,transparent 60%),#020208}
 .aurora-flow{background:radial-gradient(ellipse 75% 65% at 50% 35%,rgba(16,185,129,.18) 0%,rgba(6,182,212,.12) 45%,transparent 70%),radial-gradient(ellipse 45% 55% at 80% 75%,rgba(99,102,241,.15) 0%,transparent 60%),#020608}
+.aurora-semantic{background:radial-gradient(ellipse 80% 70% at 50% 45%,rgba(6,182,212,.2) 0%,rgba(99,102,241,.15) 50%,transparent 75%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(168,85,247,.12) 0%,transparent 60%),#010408}
+.aurora-fortress{background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(16,185,129,.18) 0%,rgba(99,102,241,.1) 55%,transparent 78%),radial-gradient(ellipse 35% 45% at 90% 15%,rgba(6,182,212,.1) 0%,transparent 60%),#010806}
 
 /* ═══════════════════════════════════════════
    GLASSMORPHISM PANEL
@@ -550,6 +552,86 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:200}
 
 /* ═══════════════════════════════════════════
+   PAIN CHAOS CANVAS
+═══════════════════════════════════════════ */
+.chaos-canvas-wrap{flex:1;width:100%;display:flex;align-items:center;justify-content:center;min-height:0;position:relative}
+#pain-canvas{display:block;max-width:100%;max-height:100%}
+.chaos-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,68,68,.7);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.chaos-label::before{content:'';width:16px;height:1px;background:rgba(239,68,68,.5);display:inline-block}
+.chaos-footer{display:flex;gap:10px;align-items:center;margin-top:10px;font-size:11px;color:rgba(255,255,255,.35);flex-wrap:wrap;justify-content:center}
+.chaos-stat{font-weight:600}.chaos-stat-r{color:rgba(239,68,68,.7);font-weight:700}
+.chaos-sep{color:rgba(255,255,255,.15)}
+
+/* ═══════════════════════════════════════════
+   SCENE: SEMANTIC VECTOR SPACE
+═══════════════════════════════════════════ */
+#s_semantic{flex-direction:column;align-items:center;justify-content:center;padding:52px 28px 14px;gap:10px}
+.sem-header{text-align:center;flex-shrink:0}
+.sem-body{display:flex;gap:14px;width:100%;max-width:980px;flex:1;min-height:0;align-items:stretch}
+.sem-canvas-wrap{flex:1;position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.3);min-height:0}
+#semantic-canvas{display:block;position:absolute;inset:0;width:100%;height:100%}
+.sem-sidebar{width:220px;flex-shrink:0;display:flex;flex-direction:column;gap:8px}
+.sem-panel{padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.sem-panel-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px}
+.sem-query-text{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.8);min-height:18px;border-right:1px solid rgba(255,255,255,.5);animation:cursorBlink 1s step-end infinite}
+@keyframes cursorBlink{0%,100%{border-color:rgba(255,255,255,.5)}50%{border-color:transparent}}
+.sem-result-card{padding:8px 10px;border-radius:7px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);opacity:0;transform:translateX(6px);transition:all .3s ease;margin-bottom:5px}
+.sem-result-card.show{opacity:1;transform:translateX(0)}
+.sem-result-title{font-size:10px;font-weight:600;color:rgba(255,255,255,.8);line-height:1.35;margin-bottom:2px}
+.sem-result-score{display:flex;align-items:center;gap:5px;font-size:9px;color:rgba(16,185,129,.8);font-family:'JetBrains Mono',monospace}
+.sem-score-bar{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.08)}
+.sem-score-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#10b981,#6ee7b7);transition:width .5s ease}
+.sem-caps{display:flex;gap:10px;flex-shrink:0;width:100%;max-width:980px}
+.sem-cap{flex:1;padding:11px 13px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);text-align:center;opacity:0;transform:translateY(10px);transition:all .4s ease}
+.sem-cap.visible{opacity:1;transform:translateY(0)}
+.sem-cap-icon{font-size:17px;margin-bottom:4px}
+.sem-cap-title{font-size:11px;font-weight:700;color:#fff;margin-bottom:2px}
+.sem-cap-sub{font-size:9.5px;color:rgba(255,255,255,.4);line-height:1.4}
+
+/* ═══════════════════════════════════════════
+   SCENE: SECURITY FORTRESS
+═══════════════════════════════════════════ */
+#s_fortress{flex-direction:column;align-items:center;justify-content:center;padding:52px 24px 16px;gap:12px}
+.fortress-header{text-align:center;flex-shrink:0}
+.fortress-layout{display:flex;gap:16px;width:100%;max-width:960px;align-items:center;flex-shrink:0}
+.fortress-perimeter{
+  flex:1;position:relative;border:2px solid rgba(16,185,129,.5);border-radius:16px;
+  background:rgba(16,185,129,.025);padding:20px 18px 14px;
+  animation:shieldPulse 3.5s ease-in-out infinite;
+}
+@keyframes shieldPulse{
+  0%,100%{box-shadow:0 0 25px rgba(16,185,129,.1),inset 0 0 25px rgba(16,185,129,.02)}
+  50%{box-shadow:0 0 55px rgba(16,185,129,.22),inset 0 0 50px rgba(16,185,129,.05)}
+}
+.fortress-badge-top{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#010806;padding:0 14px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,185,129,.85);white-space:nowrap}
+.fortress-cols{display:flex;align-items:stretch;gap:10px}
+.fortress-col{flex:1;padding:12px 10px;border-radius:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+.fortress-col.accent{border-color:rgba(99,102,241,.3);background:rgba(99,102,241,.06)}
+.fortress-col-title{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;text-align:center}
+.fortress-col.accent .fortress-col-title{color:rgba(165,180,252,.7)}
+.fortress-items{display:flex;flex-direction:column;gap:6px}
+.fi{display:flex;align-items:center;gap:7px;font-size:10.5px;color:rgba(255,255,255,.65);font-weight:500}
+.fi-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.fi-more{font-size:9.5px;color:rgba(255,255,255,.25);margin-top:2px}
+.fortress-pipe{display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;flex-shrink:0;gap:6px}
+.fortress-pipe-lbl{font-size:8px;color:rgba(255,255,255,.2);text-align:center;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+.pipe-track{width:2px;height:70px;background:rgba(255,255,255,.06);border-radius:1px;position:relative;overflow:hidden}
+.pipe-dot{position:absolute;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;animation:pipeDrop 2s linear infinite;margin-left:-1.5px}
+@keyframes pipeDrop{0%{top:-5px;opacity:0}8%{opacity:1}90%{opacity:1}100%{top:100%;opacity:0}}
+.fortress-bottom{display:flex;gap:7px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.fb{padding:4px 11px;border-radius:20px;font-size:10px;font-weight:600;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);color:#6ee7b7}
+.fortress-blocked{width:108px;flex-shrink:0;display:flex;flex-direction:column;gap:9px}
+.blocked-title{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(239,68,68,.5);text-align:center}
+.blocked-card{padding:9px 10px;border-radius:8px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12);position:relative;text-align:center}
+.blocked-card-x{position:absolute;top:-7px;right:-7px;width:16px;height:16px;background:#ef4444;border-radius:50%;font-size:9px;color:#fff;line-height:16px;text-align:center;font-weight:700}
+.bc-name{font-size:10px;font-weight:600;color:rgba(255,255,255,.3)}
+.bc-sub{font-size:9px;color:rgba(255,255,255,.2)}
+.fortress-stats{display:flex;gap:24px;justify-content:center;flex-shrink:0}
+.fss{text-align:center}
+.fss-num{font-size:26px;font-weight:900;color:#10b981;letter-spacing:-.02em}
+.fss-lbl{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:1px}
+
+/* ═══════════════════════════════════════════
    SCENE: CONNECTOR HUB
 ═══════════════════════════════════════════ */
 #s_hub{flex-direction:column;align-items:center;justify-content:center;gap:0;padding:52px 40px 16px}
@@ -759,10 +841,10 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
     <button class="tnav-link" data-scene-idx="2">Connectors</button>
     <button class="tnav-link" data-scene-idx="4">Cockpit</button>
     <button class="tnav-link" data-scene-idx="6">Search</button>
-    <button class="tnav-link" data-scene-idx="13">On-Premise</button>
-    <button class="tnav-link" data-scene-idx="14">Gallery</button>
+    <button class="tnav-link" data-scene-idx="14">On-Premise</button>
+    <button class="tnav-link" data-scene-idx="16">Gallery</button>
   </div>
-  <button class="tnav-cta" onclick="goTo(15)">Get Started</button>
+  <button class="tnav-cta" onclick="goTo(17)">Get Started</button>
 </nav>
 
 <!-- Navigation arrows -->
@@ -838,23 +920,16 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 
       <!-- RIGHT: Live platform teaser -->
       <div class="pain-right">
-        <div class="teaser-label">Platform Preview</div>
-        <div class="teaser-stack">
-          <div class="teaser-frame glass">
-            <div class="teaser-bar">
-              <div class="teaser-dot" style="background:#ef4444"></div>
-              <div class="teaser-dot" style="background:#fbbf24"></div>
-              <div class="teaser-dot" style="background:#10b981"></div>
-              <div class="teaser-url"></div>
-            </div>
-            <img id="teaser-img" src="screenshots/s02.jpg" alt="Texter Agent Platform" />
-          </div>
-          <div class="teaser-caption" id="teaser-caption">Content Cockpit — Pipeline Topology</div>
-          <div class="teaser-pills">
-            <span class="teaser-pill">Content Cockpit</span>
-            <span class="teaser-pill">Enterprise Search</span>
-            <span class="teaser-pill">Analytics</span>
-          </div>
+        <div class="chaos-label">The Reality Today</div>
+        <div class="chaos-canvas-wrap">
+          <canvas id="pain-canvas"></canvas>
+        </div>
+        <div class="chaos-footer">
+          <span class="chaos-stat">7+ disconnected silos</span>
+          <span class="chaos-sep">·</span>
+          <span class="chaos-stat">0 unified view</span>
+          <span class="chaos-sep">·</span>
+          <span class="chaos-stat-r">∞ hours lost</span>
         </div>
       </div>
 
@@ -1137,6 +1212,35 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
       <div class="results-list" id="results-list">
         <!-- populated by JS -->
       </div>
+    </div>
+  </section>
+
+  <!-- ── SCENE: SEMANTIC VECTOR SPACE ── -->
+  <section class="scene aurora-semantic" id="s_semantic">
+    <div class="sem-header anim-in delay-1">
+      <div class="label" style="color:rgba(6,182,212,.85);margin-bottom:5px">Vector Embedding Intelligence</div>
+      <div style="font-size:clamp(20px,2.8vw,32px);font-weight:900;color:#fff;letter-spacing:-.02em">Find answers, <span style="background:linear-gradient(90deg,#67e8f9,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">not just keywords.</span></div>
+    </div>
+    <div class="sem-body anim-in delay-2">
+      <div class="sem-canvas-wrap">
+        <canvas id="semantic-canvas"></canvas>
+      </div>
+      <div class="sem-sidebar">
+        <div class="sem-panel">
+          <div class="sem-panel-label">Active Query</div>
+          <div class="sem-query-text" id="sem-query-text">&nbsp;</div>
+        </div>
+        <div class="sem-panel" style="flex:1">
+          <div class="sem-panel-label">Top Semantic Matches</div>
+          <div id="sem-results-list"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sem-caps anim-in delay-3">
+      <div class="sem-cap"><div class="sem-cap-icon">🎯</div><div class="sem-cap-title">Intent-Aware</div><div class="sem-cap-sub">Understands meaning, not just matching tokens</div></div>
+      <div class="sem-cap"><div class="sem-cap-icon">🌍</div><div class="sem-cap-title">Multilingual</div><div class="sem-cap-sub">Query in any language — find content across all</div></div>
+      <div class="sem-cap"><div class="sem-cap-icon">📐</div><div class="sem-cap-title">Context-Aware</div><div class="sem-cap-sub">Vectors encode document semantics, not keywords</div></div>
+      <div class="sem-cap"><div class="sem-cap-icon">⚡</div><div class="sem-cap-title">&lt;25ms Latency</div><div class="sem-cap-sub">ANN search across 849M+ documents instantly</div></div>
     </div>
   </section>
 
@@ -1455,6 +1559,88 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
     </div>
   </section>
 
+  <!-- ── SCENE: SECURITY FORTRESS ── -->
+  <section class="scene aurora-fortress" id="s_fortress">
+    <div class="fortress-header anim-in delay-1">
+      <div class="label" style="color:rgba(16,185,129,.85);margin-bottom:5px">Zero Trust · Full Data Sovereignty</div>
+      <div style="font-size:clamp(20px,2.8vw,32px);font-weight:900;color:#fff;letter-spacing:-.02em">Your data <span style="background:linear-gradient(90deg,#6ee7b7,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">never crosses your perimeter.</span> Ever.</div>
+    </div>
+    <div class="fortress-layout anim-in delay-2">
+      <!-- Main perimeter -->
+      <div class="fortress-perimeter">
+        <div class="fortress-badge-top">🔒 Enterprise Perimeter — Nothing Exits</div>
+        <div class="fortress-cols">
+          <div class="fortress-col">
+            <div class="fortress-col-title">Data Sources</div>
+            <div class="fortress-items">
+              <div class="fi"><div class="fi-dot" style="background:#6366f1"></div>Alfresco ECM</div>
+              <div class="fi"><div class="fi-dot" style="background:#818cf8"></div>IBM FileNet P8</div>
+              <div class="fi"><div class="fi-dot" style="background:#a855f7"></div>SharePoint</div>
+              <div class="fi"><div class="fi-dot" style="background:#6366f1"></div>Documentum</div>
+              <div class="fi"><div class="fi-dot" style="background:#06b6d4"></div>HDFS / Files</div>
+              <div class="fi-more">+ 25 more connectors</div>
+            </div>
+          </div>
+          <div class="fortress-pipe">
+            <div class="pipe-track">
+              <div class="pipe-dot" style="background:#6ee7b7;animation-delay:0s"></div>
+              <div class="pipe-dot" style="background:#67e8f9;animation-delay:.66s"></div>
+              <div class="pipe-dot" style="background:#a5b4fc;animation-delay:1.33s"></div>
+            </div>
+          </div>
+          <div class="fortress-col accent">
+            <div class="fortress-col-title">Texter Agent Core</div>
+            <div class="fortress-items">
+              <div class="fi"><div class="fi-dot" style="background:#a5b4fc"></div>Connector Engine</div>
+              <div class="fi"><div class="fi-dot" style="background:#c4b5fd"></div>Parse &amp; Extract</div>
+              <div class="fi"><div class="fi-dot" style="background:#fcd34d"></div>Classify &amp; Tag</div>
+              <div class="fi"><div class="fi-dot" style="background:#67e8f9"></div>On-Prem LLM Embed</div>
+              <div class="fi"><div class="fi-dot" style="background:#6ee7b7"></div>Agent AI Index</div>
+            </div>
+          </div>
+          <div class="fortress-pipe">
+            <div class="pipe-track">
+              <div class="pipe-dot" style="background:#6ee7b7;animation-delay:.22s"></div>
+              <div class="pipe-dot" style="background:#a5b4fc;animation-delay:.88s"></div>
+              <div class="pipe-dot" style="background:#67e8f9;animation-delay:1.55s"></div>
+            </div>
+          </div>
+          <div class="fortress-col">
+            <div class="fortress-col-title">Applications</div>
+            <div class="fortress-items">
+              <div class="fi"><div class="fi-dot" style="background:#10b981"></div>Enterprise Search</div>
+              <div class="fi"><div class="fi-dot" style="background:#34d399"></div>Analytics &amp; BI</div>
+              <div class="fi"><div class="fi-dot" style="background:#6ee7b7"></div>E-Discovery</div>
+              <div class="fi"><div class="fi-dot" style="background:#10b981"></div>REST API</div>
+              <div class="fi"><div class="fi-dot" style="background:#34d399"></div>Dashboards</div>
+            </div>
+          </div>
+        </div>
+        <div class="fortress-bottom">
+          <div class="fb">🔒 GDPR Ready</div>
+          <div class="fb">🏛 ISO 27001</div>
+          <div class="fb">✅ SOC 2</div>
+          <div class="fb">🌍 Data Sovereignty</div>
+          <div class="fb">⚡ Air-Gap Support</div>
+        </div>
+      </div>
+      <!-- Blocked services -->
+      <div class="fortress-blocked">
+        <div class="blocked-title">Blocked</div>
+        <div class="blocked-card"><div class="blocked-card-x">✕</div><div class="bc-name">☁ AWS / Azure</div><div class="bc-sub">Cloud AI</div></div>
+        <div class="blocked-card"><div class="blocked-card-x">✕</div><div class="bc-name">🤖 OpenAI</div><div class="bc-sub">External LLM</div></div>
+        <div class="blocked-card"><div class="blocked-card-x">✕</div><div class="bc-name">📡 SaaS Search</div><div class="bc-sub">Cloud Index</div></div>
+      </div>
+    </div>
+    <div class="fortress-stats anim-in delay-3">
+      <div class="fss"><div class="fss-num">0</div><div class="fss-lbl">Bytes Sent to Cloud</div></div>
+      <div style="width:1px;background:rgba(255,255,255,.08);height:40px"></div>
+      <div class="fss"><div class="fss-num">100%</div><div class="fss-lbl">On-Premise Processing</div></div>
+      <div style="width:1px;background:rgba(255,255,255,.08);height:40px"></div>
+      <div class="fss"><div class="fss-num">∞</div><div class="fss-lbl">Sovereignty Control</div></div>
+    </div>
+  </section>
+
   <!-- ── SCENE 12: ON-PREMISE TRUST ── -->
   <section class="scene aurora-onprem" id="s12">
     <div class="onprem-badge anim-in delay-1"><span class="onprem-shield">🛡️</span>Air-Gap Ready · Full On-Prem</div>
@@ -1673,7 +1859,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 /* ═══════════════════════════════════════════════════════
    SCENE MANAGER
 ═══════════════════════════════════════════════════════ */
-const scenes=['s0','s1','s_hub','s_flow','s2','s3','s4','s5','s6','s7','s9','s10','s11','s12','s_gallery','s8'];
+const scenes=['s0','s1','s_hub','s_flow','s2','s3','s4','s_semantic','s5','s6','s7','s9','s10','s11','s_fortress','s12','s_gallery','s8'];
 let current=0,transitioning=false;
 
 const progressEl=document.getElementById('scene-progress');
@@ -1737,11 +1923,14 @@ document.addEventListener('touchend',e=>{
    SCENE ENTER CALLBACKS
 ═══════════════════════════════════════════════════════ */
 function onEnter(sid){
-  if(sid!=='s0')clearInterval(teaserTimer);
+  if(sid!=='s0'){clearInterval(teaserTimer);painCanvasRunning=false;}
   if(sid!=='s_hub')hubRunning=false;
+  if(sid!=='s_semantic')semanticRunning=false;
   if(sid==='s0')initPain();
   if(sid==='s_hub')initHub();
   if(sid==='s_flow')initFlow();
+  if(sid==='s_semantic')initSemantic();
+  if(sid==='s_fortress')initFortress();
   if(sid==='s1')initHero();
   if(sid==='s3')initJobs();
   if(sid==='s4')initSearch();
@@ -1898,39 +2087,211 @@ function initReports(){
   if(sb)setTimeout(()=>{sb.style.width='90.9%'},600);
 }
 
-/* --- SCENE 0: Pain Points + Teaser Rotator --- */
-const teaserSlides=[
-  {src:'screenshots/s02.jpg', cap:'Content Cockpit — Pipeline Topology'},
-  {src:'screenshots/s05.jpg', cap:'Enterprise Search — Performance Intelligence'},
-  {src:'screenshots/s04.jpg', cap:'Content Analytics — Inventory Intelligence'},
-  {src:'screenshots/s21.jpg', cap:'Operations Center — Live Monitor'},
-];
-let teaserIdx=0,teaserTimer=null;
-function rotateTeaserTo(idx){
-  const img=document.getElementById('teaser-img');
-  const cap=document.getElementById('teaser-caption');
-  if(!img||!cap)return;
-  img.style.opacity='0';cap.style.opacity='0';
-  setTimeout(()=>{
-    img.src=teaserSlides[idx].src;
-    cap.textContent=teaserSlides[idx].cap;
-    img.style.opacity='1';cap.style.opacity='1';
-  },400);
-}
+/* ═══════════════════════════════════════════════════════
+   SCENE 0: PAIN CHAOS CANVAS
+═══════════════════════════════════════════════════════ */
+let teaserTimer=null,teaserIdx=0; /* kept for compat */
+let painCanvasRunning=false;
+
 function initPain(){
   const rows=document.querySelectorAll('#pain-grid .pain-row');
-  rows.forEach((el,i)=>{
-    el.classList.remove('visible');
-    setTimeout(()=>el.classList.add('visible'),i*130+300);
+  rows.forEach((el,i)=>{el.classList.remove('visible');setTimeout(()=>el.classList.add('visible'),i*130+300);});
+  initPainChaos();
+}
+
+function initPainChaos(){
+  const canvas=document.getElementById('pain-canvas');
+  if(!canvas)return;
+  painCanvasRunning=true;
+  const wrap=canvas.parentElement;
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const W=wrap.clientWidth||300,H=wrap.clientHeight||340;
+  canvas.width=W*dpr;canvas.height=H*dpr;
+  canvas.style.width=W+'px';canvas.style.height=H+'px';
+  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
+  const srcs=[
+    {abbr:'SP',name:'SharePoint',rx:.5,  ry:.1,  color:'#3b82f6',phase:0  },
+    {abbr:'AF',name:'Alfresco',  rx:.1,  ry:.3,  color:'#6366f1',phase:1.1},
+    {abbr:'FN',name:'FileNet',   rx:.9,  ry:.27, color:'#818cf8',phase:2.2},
+    {abbr:'EM',name:'Email',     rx:.08, ry:.68, color:'#f59e0b',phase:0.8},
+    {abbr:'DC',name:'Documentum',rx:.92, ry:.65, color:'#a855f7',phase:1.9},
+    {abbr:'MF',name:'M-Files',   rx:.27, ry:.9,  color:'#ec4899',phase:3.0},
+    {abbr:'GD',name:'Drive',     rx:.73, ry:.9,  color:'#10b981',phase:0.4},
+  ];
+  srcs.forEach(s=>{s.bx=s.rx*W;s.by=s.ry*H;s.amp=3+Math.random()*3;});
+  const conns=[[0,1],[0,2],[1,3],[2,4],[3,5],[4,6],[1,5],[2,6],[0,5],[3,6]];
+  const errs=conns.map(()=>0);
+  let t=0,ef=0;
+  function draw(){
+    if(!painCanvasRunning)return;
+    ctx.clearRect(0,0,W,H);t+=0.013;ef++;
+    if(ef%16===0){const ei=Math.floor(Math.random()*errs.length);errs[ei]=1;}
+    for(let i=0;i<errs.length;i++)errs[i]=Math.max(0,errs[i]-0.022);
+    const pos=srcs.map(s=>({x:s.bx+Math.sin(t*.65+s.phase)*s.amp,y:s.by+Math.cos(t*.5+s.phase)*s.amp}));
+    conns.forEach(([a,b],i)=>{
+      const e=errs[i];
+      ctx.setLineDash([4,8]);
+      ctx.beginPath();ctx.moveTo(pos[a].x,pos[a].y);ctx.lineTo(pos[b].x,pos[b].y);
+      ctx.strokeStyle=e>.2?`rgba(239,68,68,${.1+e*.55})`:`rgba(255,255,255,${.07+e*.1})`;
+      ctx.lineWidth=e>.3?1.3:.6;ctx.stroke();ctx.setLineDash([]);
+      if(e>.45){
+        const mx=(pos[a].x+pos[b].x)/2,my=(pos[a].y+pos[b].y)/2;
+        ctx.save();ctx.shadowColor='#ef4444';ctx.shadowBlur=10;
+        ctx.strokeStyle=`rgba(239,68,68,${e})`;ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.moveTo(mx-5,my-5);ctx.lineTo(mx+5,my+5);ctx.moveTo(mx+5,my-5);ctx.lineTo(mx-5,my+5);ctx.stroke();ctx.restore();
+      }
+    });
+    srcs.forEach((s,i)=>{
+      const p=pos[i];
+      ctx.save();ctx.shadowColor=s.color;ctx.shadowBlur=14;
+      ctx.beginPath();ctx.arc(p.x,p.y,20,0,Math.PI*2);ctx.fillStyle=s.color+'18';ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,13,0,Math.PI*2);ctx.fillStyle='#070710';ctx.fill();
+      ctx.strokeStyle=s.color+'aa';ctx.lineWidth=1.3;ctx.stroke();ctx.restore();
+      ctx.font='bold 9px Inter,sans-serif';ctx.fillStyle='rgba(255,255,255,.85)';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(s.abbr,p.x,p.y);
+      ctx.font='7.5px Inter,sans-serif';ctx.fillStyle='rgba(255,255,255,.32)';ctx.fillText(s.name,p.x,p.y+21);
+    });
+    const qx=W/2,qy=H*.5,qp=.5+Math.sin(t*2.3)*.5;
+    ctx.save();ctx.shadowColor='#ef4444';ctx.shadowBlur=22+qp*14;
+    ctx.beginPath();ctx.arc(qx,qy,22+qp*3,0,Math.PI*2);ctx.fillStyle=`rgba(239,68,68,${.06+qp*.06})`;ctx.fill();
+    ctx.beginPath();ctx.arc(qx,qy,16,0,Math.PI*2);ctx.fillStyle='#0e0404';ctx.fill();
+    ctx.strokeStyle=`rgba(239,68,68,${.4+qp*.4})`;ctx.lineWidth=1.3;ctx.stroke();ctx.restore();
+    ctx.font='bold 14px Inter,sans-serif';ctx.fillStyle=`rgba(239,68,68,${.7+qp*.3})`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('?',qx,qy+1);
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCENE: SEMANTIC VECTOR SPACE
+═══════════════════════════════════════════════════════ */
+let semanticRunning=false;
+const semClusters=[
+  {name:'HR & People',  cx:.68,cy:.3,  color:'#6366f1',r:.12,titles:['Employee Policy Manual','Performance Review Guide','Onboarding Checklist','HR Compliance Framework']},
+  {name:'Legal',        cx:.24,cy:.3,  color:'#a855f7',r:.1, titles:['NDA Agreement v2.1','GDPR Compliance Report','IP Assignment Contract','Litigation Brief']},
+  {name:'Technical',    cx:.7, cy:.72, color:'#06b6d4',r:.11,titles:['Server Architecture Guide','API Documentation','Deployment Runbook','DR Procedures Manual']},
+  {name:'Finance',      cx:.26,cy:.72, color:'#f59e0b',r:.1, titles:['Q4 Financial Report','Budget Forecast 2025','Audit Trail Export','Revenue Analysis']},
+];
+const semQueries=[
+  {text:'annual compliance report Q3',cluster:1},
+  {text:'server infrastructure setup guide',cluster:2},
+  {text:'employee performance review',cluster:0},
+  {text:'Q4 financial audit results',cluster:3},
+  {text:'intellectual property agreement',cluster:1},
+  {text:'HR onboarding procedures',cluster:0},
+];
+
+function initSemantic(){
+  const canvas=document.getElementById('semantic-canvas');
+  if(!canvas)return;
+  semanticRunning=true;
+  const wrap=canvas.parentElement;
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const W=wrap.clientWidth||480,H=wrap.clientHeight||280;
+  canvas.width=W*dpr;canvas.height=H*dpr;
+  canvas.style.width=W+'px';canvas.style.height=H+'px';
+  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
+  semClusters.forEach(cl=>{cl.ax=cl.cx*W;cl.ay=cl.cy*H;});
+  const allDocs=[];
+  semClusters.forEach(cl=>{
+    for(let i=0;i<20;i++){
+      const a=Math.random()*Math.PI*2,d=(.02+Math.random()*cl.r)*Math.min(W,H);
+      allDocs.push({x:cl.ax+Math.cos(a)*d,y:cl.ay+Math.sin(a)*d,cl,glow:0});
+    }
   });
-  /* start teaser rotation */
-  clearInterval(teaserTimer);
-  teaserIdx=0;
-  rotateTeaserTo(0);
-  teaserTimer=setInterval(()=>{
-    teaserIdx=(teaserIdx+1)%teaserSlides.length;
-    rotateTeaserTo(teaserIdx);
-  },3200);
+  let qIdx=0,phase='idle',phaseT=0,typedText='',qx=0,qy=0,qtx=0,qty=0,qAlpha=0,nearDocs=[],connA=0;
+  function startQ(){
+    const q=semQueries[qIdx%semQueries.length];
+    typedText='';phase='typing';phaseT=0;nearDocs=[];connA=0;allDocs.forEach(d=>d.glow=0);
+    qtx=semClusters[q.cluster].ax+(Math.random()-.5)*28;
+    qty=semClusters[q.cluster].ay+(Math.random()-.5)*28;
+    qx=Math.random()>.5?W*.05:W*.95;qy=Math.random()>.5?H*.1:H*.88;qAlpha=0;
+    setQueryDOM(q.text.slice(0,0),[]);
+  }
+  function setQueryDOM(query,results){
+    const qt=document.getElementById('sem-query-text');
+    const rl=document.getElementById('sem-results-list');
+    if(qt)qt.textContent=query||'\u00a0';
+    if(rl){
+      rl.innerHTML='';
+      results.forEach((r,i)=>{
+        const c=document.createElement('div');c.className='sem-result-card';
+        const score=(0.97-i*0.04).toFixed(2);
+        const pct=Math.round((0.97-i*0.04)*100);
+        c.innerHTML=`<div class="sem-result-title">${r}</div><div class="sem-result-score"><div class="sem-score-bar"><div class="sem-score-fill" style="width:${pct}%"></div></div>${score}</div>`;
+        rl.appendChild(c);setTimeout(()=>c.classList.add('show'),i*110+60);
+      });
+    }
+  }
+  startQ();
+  function draw(){
+    if(!semanticRunning)return;
+    ctx.clearRect(0,0,W,H);phaseT++;
+    /* grid */
+    ctx.strokeStyle='rgba(255,255,255,.03)';ctx.lineWidth=.5;
+    for(let x=0;x<W;x+=36){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(let y=0;y<H;y+=36){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    /* cluster halos */
+    semClusters.forEach(cl=>{
+      const g=ctx.createRadialGradient(cl.ax,cl.ay,0,cl.ax,cl.ay,cl.r*Math.min(W,H)*1.2);
+      g.addColorStop(0,cl.color+'1a');g.addColorStop(1,'transparent');
+      ctx.beginPath();ctx.arc(cl.ax,cl.ay,cl.r*Math.min(W,H)*1.2,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+      ctx.font='bold 10px Inter,sans-serif';ctx.fillStyle=cl.color+'cc';ctx.textAlign='center';ctx.textBaseline='bottom';
+      ctx.fillText(cl.name,cl.ax,cl.ay-cl.r*Math.min(W,H)*.7);
+    });
+    /* connection lines */
+    if(connA>0)nearDocs.forEach(d=>{
+      ctx.beginPath();ctx.moveTo(qx,qy);ctx.lineTo(d.x,d.y);
+      ctx.strokeStyle=d.cl.color+Math.round(connA*70).toString(16).padStart(2,'0');ctx.lineWidth=.8;ctx.stroke();
+    });
+    /* docs */
+    allDocs.forEach(d=>{
+      const r=d.glow>0?3.5+d.glow*3:2;
+      if(d.glow>0){ctx.save();ctx.shadowColor=d.cl.color;ctx.shadowBlur=8+d.glow*8;}
+      ctx.beginPath();ctx.arc(d.x,d.y,r,0,Math.PI*2);
+      ctx.fillStyle=d.cl.color+Math.round((.55+d.glow*.45)*200).toString(16).padStart(2,'0');ctx.fill();
+      if(d.glow>0)ctx.restore();
+      d.glow=Math.max(0,d.glow-.012);
+    });
+    /* phase logic */
+    const q=semQueries[qIdx%semQueries.length];
+    if(phase==='typing'){
+      if(phaseT%5===0&&typedText.length<q.text.length){typedText=q.text.slice(0,typedText.length+1);setQueryDOM(typedText,[]);}
+      if(typedText===q.text&&phaseT>35){phase='moving';phaseT=0;}
+    }
+    if(phase==='moving'){
+      qAlpha=Math.min(1,qAlpha+.07);
+      qx+=(qtx-qx)*.055;qy+=(qty-qy)*.055;
+      if(Math.hypot(qx-qtx,qy-qty)<3){phase='showing';phaseT=0;}
+    }
+    if(phase==='showing'&&phaseT===1){
+      const cl=semClusters[q.cluster];
+      nearDocs=allDocs.filter(d=>d.cl===cl).sort((a,b)=>Math.hypot(a.x-qtx,a.y-qty)-Math.hypot(b.x-qtx,b.y-qty)).slice(0,4);
+      nearDocs.forEach((d,i)=>setTimeout(()=>{d.glow=1;},i*90));
+      setQueryDOM(q.text,cl.titles.slice(0,4));
+    }
+    if(phase==='showing'){connA=Math.min(1,connA+.05);if(phaseT>110){phase='idle';phaseT=0;}}
+    if(phase==='idle'&&phaseT>25){qIdx++;startQ();}
+    /* query node */
+    if(qAlpha>0){
+      ctx.save();ctx.shadowColor='#fff';ctx.shadowBlur=18*qAlpha;
+      ctx.beginPath();ctx.arc(qx,qy,7,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${qAlpha*.9})`;ctx.fill();
+      ctx.strokeStyle=`rgba(255,255,255,${qAlpha*.4})`;ctx.lineWidth=1.5;ctx.stroke();ctx.restore();
+      ctx.font='bold 6.5px Inter,sans-serif';ctx.fillStyle=`rgba(0,0,0,${qAlpha*.8})`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Q',qx,qy+.5);
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCENE: SECURITY FORTRESS
+═══════════════════════════════════════════════════════ */
+function initFortress(){
+  /* Animate stats and benefit cards */
+  document.querySelectorAll('#s_fortress .fss-num,.fortress-header').forEach((el,i)=>{
+    el.style.opacity='0';el.style.transform='translateY(12px)';
+    setTimeout(()=>{el.style.transition='all .5s ease';el.style.opacity='1';el.style.transform='translateY(0)';},i*100+400);
+  });
 }
 
 /* --- SCENE 12: On-Prem --- */
