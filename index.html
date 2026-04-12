@@ -41,6 +41,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 .aurora-pain{background:radial-gradient(ellipse 70% 55% at 20% 30%,rgba(239,68,68,.2) 0%,transparent 60%),radial-gradient(ellipse 50% 70% at 80% 60%,rgba(245,158,11,.12) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 50% 90%,rgba(220,38,38,.1) 0%,transparent 60%),#060101}
 .aurora-onprem{background:radial-gradient(ellipse 70% 60% at 30% 40%,rgba(16,185,129,.25) 0%,transparent 60%),radial-gradient(ellipse 60% 70% at 75% 30%,rgba(99,102,241,.2) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 60% 80%,rgba(6,182,212,.15) 0%,transparent 60%),#010806}
 .aurora-gallery{background:radial-gradient(ellipse 75% 60% at 25% 35%,rgba(99,102,241,.28) 0%,transparent 60%),radial-gradient(ellipse 55% 75% at 75% 25%,rgba(6,182,212,.18) 0%,transparent 60%),radial-gradient(ellipse 60% 45% at 55% 85%,rgba(168,85,247,.15) 0%,transparent 60%),#020208}
+.aurora-hub{background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(99,102,241,.22) 0%,rgba(168,85,247,.1) 50%,transparent 75%),radial-gradient(ellipse 40% 40% at 15% 20%,rgba(6,182,212,.1) 0%,transparent 60%),#020208}
+.aurora-flow{background:radial-gradient(ellipse 75% 65% at 50% 35%,rgba(16,185,129,.18) 0%,rgba(6,182,212,.12) 45%,transparent 70%),radial-gradient(ellipse 45% 55% at 80% 75%,rgba(99,102,241,.15) 0%,transparent 60%),#020608}
 
 /* ═══════════════════════════════════════════
    GLASSMORPHISM PANEL
@@ -547,6 +549,85 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 /* SCANLINE overlay */
 body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:200}
 
+/* ═══════════════════════════════════════════
+   SCENE: CONNECTOR HUB
+═══════════════════════════════════════════ */
+#s_hub{flex-direction:column;align-items:center;justify-content:center;gap:0;padding:52px 40px 16px}
+.hub-header{text-align:center;margin-bottom:10px;flex-shrink:0}
+.hub-canvas-wrap{flex:1;width:100%;display:flex;align-items:center;justify-content:center;position:relative;min-height:0}
+#hub-canvas{display:block;max-width:100%;max-height:100%}
+.hub-legend{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;padding:10px 0 0;flex-shrink:0}
+.hub-leg-item{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:500;color:rgba(255,255,255,.5)}
+.hub-leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.hub-count-strip{display:flex;gap:28px;justify-content:center;margin-bottom:10px;flex-shrink:0}
+.hub-count{text-align:center}
+.hub-count-num{font-size:22px;font-weight:800;letter-spacing:-.02em;color:#fff}
+.hub-count-lbl{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:1px}
+
+/* ═══════════════════════════════════════════
+   SCENE: INTELLIGENCE PIPELINE
+═══════════════════════════════════════════ */
+#s_flow{flex-direction:column;align-items:center;justify-content:center;gap:0;padding:52px 32px 20px}
+.flow-header{text-align:center;margin-bottom:24px;flex-shrink:0}
+.flow-stages-wrap{width:100%;max-width:960px;flex-shrink:0}
+.flow-stages{display:flex;align-items:center;justify-content:center;width:100%}
+.flow-node{
+  flex-shrink:0;display:flex;flex-direction:column;align-items:center;
+  width:130px;
+}
+.flow-node-circle{
+  width:62px;height:62px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;flex-shrink:0;
+  border:1.5px solid;
+}
+.flow-node-circle svg{display:block}
+.flow-node-pulse{
+  position:absolute;inset:-6px;border-radius:50%;border:1px solid;
+  animation:flowPulse 2.5s ease-out infinite;
+  opacity:0;
+}
+@keyframes flowPulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.4);opacity:0}}
+.flow-node-label{font-size:11px;font-weight:700;color:rgba(255,255,255,.85);margin-top:9px;text-align:center;line-height:1.3}
+.flow-node-sub{font-size:9.5px;color:rgba(255,255,255,.38);margin-top:3px;text-align:center;line-height:1.4}
+.flow-connector{
+  flex:1;height:2px;position:relative;overflow:visible;
+  background:linear-gradient(90deg,rgba(255,255,255,.06),rgba(255,255,255,.12),rgba(255,255,255,.06));
+  min-width:24px;max-width:70px;
+}
+.flow-particle{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:6px;height:6px;border-radius:50%;
+  animation:particleFlow 1.8s linear infinite;
+}
+.flow-particle:nth-child(2){animation-delay:.6s}
+.flow-particle:nth-child(3){animation-delay:1.2s}
+@keyframes particleFlow{
+  0%{left:-6px;opacity:0}
+  8%{opacity:1}
+  90%{opacity:1}
+  100%{left:calc(100% + 6px);opacity:0}
+}
+.flow-benefits{display:flex;gap:14px;margin-top:24px;width:100%;max-width:960px;flex-shrink:0}
+.flow-benefit{
+  flex:1;padding:16px 18px;border-radius:12px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  opacity:0;transform:translateY(16px);transition:all .5s cubic-bezier(.16,1,.3,1);
+}
+.flow-benefit.visible{opacity:1;transform:translateY(0)}
+.flow-benefit-icon{font-size:20px;margin-bottom:8px}
+.flow-benefit-title{font-size:12px;font-weight:700;color:#fff;margin-bottom:4px}
+.flow-benefit-text{font-size:11px;color:rgba(255,255,255,.45);line-height:1.55}
+.flow-throughput{
+  display:flex;align-items:center;gap:8px;margin-top:18px;
+  padding:10px 22px;border-radius:10px;
+  background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.18);
+  flex-shrink:0;
+}
+.flow-tp-dot{width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 1.4s ease-in-out infinite}
+.flow-tp-text{font-size:12px;font-weight:600;color:rgba(255,255,255,.7)}
+.flow-tp-num{font-size:14px;font-weight:800;color:#6ee7b7;margin:0 4px}
+
 /* Scrollbar hidden */
 ::-webkit-scrollbar{display:none}
 
@@ -675,12 +756,13 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
   <div class="tnav-links" id="tnav-links">
     <button class="tnav-link active" data-scene-idx="0">Problem</button>
     <button class="tnav-link" data-scene-idx="1">Platform</button>
-    <button class="tnav-link" data-scene-idx="2">Cockpit</button>
-    <button class="tnav-link" data-scene-idx="4">Search</button>
-    <button class="tnav-link" data-scene-idx="8">On-Premise</button>
-    <button class="tnav-link" data-scene-idx="12">Gallery</button>
+    <button class="tnav-link" data-scene-idx="2">Connectors</button>
+    <button class="tnav-link" data-scene-idx="4">Cockpit</button>
+    <button class="tnav-link" data-scene-idx="6">Search</button>
+    <button class="tnav-link" data-scene-idx="13">On-Premise</button>
+    <button class="tnav-link" data-scene-idx="14">Gallery</button>
   </div>
-  <button class="tnav-cta" onclick="goTo(13)">Get Started</button>
+  <button class="tnav-cta" onclick="goTo(15)">Get Started</button>
 </nav>
 
 <!-- Navigation arrows -->
@@ -807,6 +889,164 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
         <div class="hero-stat-label">Cluster Uptime</div>
       </div>
     </div>
+  </section>
+
+  <!-- ── SCENE: CONNECTOR UNIVERSE ── -->
+  <section class="scene aurora-hub" id="s_hub">
+    <div class="hub-header anim-in delay-1">
+      <div class="label" style="color:rgba(99,102,241,.8);margin-bottom:6px">30+ Native Enterprise Connectors</div>
+      <div style="font-size:clamp(22px,3vw,34px);font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1.2">Every source. <span style="background:linear-gradient(90deg,#a5b4fc,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">One intelligence layer.</span></div>
+    </div>
+    <div class="hub-count-strip anim-in delay-2">
+      <div class="hub-count"><div class="hub-count-num">849M</div><div class="hub-count-lbl">Documents Indexed</div></div>
+      <div style="width:1px;background:rgba(255,255,255,.1);height:36px"></div>
+      <div class="hub-count"><div class="hub-count-num">30+</div><div class="hub-count-lbl">Connector Types</div></div>
+      <div style="width:1px;background:rgba(255,255,255,.1);height:36px"></div>
+      <div class="hub-count"><div class="hub-count-num">23ms</div><div class="hub-count-lbl">Avg Query Latency</div></div>
+    </div>
+    <div class="hub-canvas-wrap">
+      <canvas id="hub-canvas"></canvas>
+    </div>
+    <div class="hub-legend anim-in delay-3">
+      <div class="hub-leg-item"><div class="hub-leg-dot" style="background:#6366f1"></div>Enterprise Content (Alfresco · FileNet · Documentum · M-Files · Nuxeo)</div>
+      <div class="hub-leg-item"><div class="hub-leg-dot" style="background:#a855f7"></div>Collaboration (SharePoint · Confluence · JIRA)</div>
+      <div class="hub-leg-item"><div class="hub-leg-dot" style="background:#06b6d4"></div>Storage &amp; File Systems (CMIS · HDFS · Windows Shares)</div>
+      <div class="hub-leg-item"><div class="hub-leg-dot" style="background:#10b981"></div>Cloud &amp; Comms (Dropbox · Box · Drive · Email · Web)</div>
+    </div>
+  </section>
+
+  <!-- ── SCENE: INTELLIGENCE PIPELINE ── -->
+  <section class="scene aurora-flow" id="s_flow">
+    <div class="flow-header anim-in delay-1">
+      <div class="label" style="color:rgba(16,185,129,.8);margin-bottom:6px">Document Intelligence Journey</div>
+      <div style="font-size:clamp(22px,3vw,34px);font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1.2">From raw file to <span style="background:linear-gradient(90deg,#6ee7b7,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">searchable intelligence</span> — in seconds.</div>
+    </div>
+    <div class="flow-stages-wrap anim-in delay-2">
+      <div class="flow-stages">
+
+        <!-- Stage 1: Ingest -->
+        <div class="flow-node">
+          <div class="flow-node-circle" style="background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.5)">
+            <div class="flow-node-pulse" style="border-color:rgba(99,102,241,.4)"></div>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="8" height="10" rx="2" stroke="#a5b4fc" stroke-width="1.5"/><rect x="10" y="10" width="8" height="10" rx="2" fill="rgba(99,102,241,.15)" stroke="#a5b4fc" stroke-width="1.5" opacity=".6"/><rect x="16" y="4" width="8" height="10" rx="2" stroke="#a5b4fc" stroke-width="1.5" opacity=".4"/><path d="M14 20v4M12 22l2 2 2-2" stroke="#6ee7b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="flow-node-label">Ingest</div>
+          <div class="flow-node-sub">30+ connectors crawl your sources</div>
+        </div>
+
+        <div class="flow-connector">
+          <div class="flow-particle" style="background:#a5b4fc;box-shadow:0 0 6px #6366f1"></div>
+          <div class="flow-particle" style="background:#a5b4fc;box-shadow:0 0 6px #6366f1"></div>
+          <div class="flow-particle" style="background:#a5b4fc;box-shadow:0 0 6px #6366f1"></div>
+        </div>
+
+        <!-- Stage 2: Parse & Extract -->
+        <div class="flow-node">
+          <div class="flow-node-circle" style="background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.5)">
+            <div class="flow-node-pulse" style="border-color:rgba(168,85,247,.4);animation-delay:.4s"></div>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="4" width="18" height="20" rx="2" stroke="#c4b5fd" stroke-width="1.5"/><path d="M9 10h10M9 14h10M9 18h6" stroke="#c4b5fd" stroke-width="1.4" stroke-linecap="round" opacity=".7"/><circle cx="22" cy="22" r="4" fill="rgba(168,85,247,.2)" stroke="#c4b5fd" stroke-width="1.3"/><path d="M21 22l1 1 1.5-1.5" stroke="#c4b5fd" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="flow-node-label">Parse &amp; Extract</div>
+          <div class="flow-node-sub">Text, tables, metadata, structure</div>
+        </div>
+
+        <div class="flow-connector">
+          <div class="flow-particle" style="background:#c4b5fd;box-shadow:0 0 6px #a855f7;animation-delay:.3s"></div>
+          <div class="flow-particle" style="background:#c4b5fd;box-shadow:0 0 6px #a855f7;animation-delay:.9s"></div>
+          <div class="flow-particle" style="background:#c4b5fd;box-shadow:0 0 6px #a855f7;animation-delay:1.5s"></div>
+        </div>
+
+        <!-- Stage 3: Classify & Tag -->
+        <div class="flow-node">
+          <div class="flow-node-circle" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.5)">
+            <div class="flow-node-pulse" style="border-color:rgba(245,158,11,.4);animation-delay:.8s"></div>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="10" cy="10" r="5" stroke="#fcd34d" stroke-width="1.5"/><circle cx="20" cy="10" r="4" stroke="#fcd34d" stroke-width="1.5" opacity=".6"/><circle cx="14" cy="20" r="4" stroke="#fcd34d" stroke-width="1.5" opacity=".4"/><path d="M14 5v5M10 15l4 5M20 14l-6 6" stroke="#fcd34d" stroke-width="1.2" stroke-linecap="round" opacity=".5"/></svg>
+          </div>
+          <div class="flow-node-label">Classify &amp; Tag</div>
+          <div class="flow-node-sub">AI labels content type &amp; metadata</div>
+        </div>
+
+        <div class="flow-connector">
+          <div class="flow-particle" style="background:#fcd34d;box-shadow:0 0 6px #f59e0b;animation-delay:.6s"></div>
+          <div class="flow-particle" style="background:#fcd34d;box-shadow:0 0 6px #f59e0b;animation-delay:1.2s"></div>
+          <div class="flow-particle" style="background:#fcd34d;box-shadow:0 0 6px #f59e0b;animation-delay:0s"></div>
+        </div>
+
+        <!-- Stage 4: Embed -->
+        <div class="flow-node">
+          <div class="flow-node-circle" style="background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.5)">
+            <div class="flow-node-pulse" style="border-color:rgba(6,182,212,.4);animation-delay:1.2s"></div>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="8" width="8" height="12" rx="2" stroke="#67e8f9" stroke-width="1.5"/><rect x="16" y="8" width="8" height="12" rx="2" stroke="#67e8f9" stroke-width="1.5"/><path d="M12 14h4" stroke="#67e8f9" stroke-width="1.8" stroke-linecap="round"/><circle cx="14" cy="14" r="2" fill="#06b6d4"/><path d="M8 6l-3-2M8 22l-3 2M20 6l3-2M20 22l3 2" stroke="#67e8f9" stroke-width="1.2" stroke-linecap="round" opacity=".4"/></svg>
+          </div>
+          <div class="flow-node-label">Embed &amp; Vectorize</div>
+          <div class="flow-node-sub">On-prem LLM generates semantic vectors</div>
+        </div>
+
+        <div class="flow-connector">
+          <div class="flow-particle" style="background:#67e8f9;box-shadow:0 0 6px #06b6d4;animation-delay:.9s"></div>
+          <div class="flow-particle" style="background:#67e8f9;box-shadow:0 0 6px #06b6d4;animation-delay:1.5s"></div>
+          <div class="flow-particle" style="background:#67e8f9;box-shadow:0 0 6px #06b6d4;animation-delay:.3s"></div>
+        </div>
+
+        <!-- Stage 5: Index -->
+        <div class="flow-node">
+          <div class="flow-node-circle" style="background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.5)">
+            <div class="flow-node-pulse" style="border-color:rgba(16,185,129,.4);animation-delay:1.6s"></div>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="8" rx="9" ry="3" stroke="#6ee7b7" stroke-width="1.5"/><path d="M5 8v5c0 1.66 4.03 3 9 3s9-1.34 9-3V8" stroke="#6ee7b7" stroke-width="1.5"/><path d="M5 13v5c0 1.66 4.03 3 9 3s9-1.34 9-3v-5" stroke="#6ee7b7" stroke-width="1.5" opacity=".5"/><circle cx="14" cy="8" r="2.5" fill="#10b981" opacity=".8"/></svg>
+          </div>
+          <div class="flow-node-label">Agent AI Index</div>
+          <div class="flow-node-sub">Distributed index — fully on-prem</div>
+        </div>
+
+        <div class="flow-connector">
+          <div class="flow-particle" style="background:#6ee7b7;box-shadow:0 0 6px #10b981;animation-delay:1.2s"></div>
+          <div class="flow-particle" style="background:#6ee7b7;box-shadow:0 0 6px #10b981;animation-delay:0s"></div>
+          <div class="flow-particle" style="background:#6ee7b7;box-shadow:0 0 6px #10b981;animation-delay:.6s"></div>
+        </div>
+
+        <!-- Stage 6: Search & Discover -->
+        <div class="flow-node">
+          <div class="flow-node-circle" style="background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.6)">
+            <div class="flow-node-pulse" style="border-color:rgba(99,102,241,.5);animation-delay:2s"></div>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="7" stroke="#a5b4fc" stroke-width="1.6"/><path d="M17.5 17.5L23 23" stroke="#a5b4fc" stroke-width="1.8" stroke-linecap="round"/><path d="M9 12h6M12 9v6" stroke="#6ee7b7" stroke-width="1.4" stroke-linecap="round" opacity=".7"/></svg>
+          </div>
+          <div class="flow-node-label">Search &amp; Discover</div>
+          <div class="flow-node-sub">Semantic results in &lt;25ms</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="flow-benefits anim-in delay-3">
+      <div class="flow-benefit">
+        <div class="flow-benefit-icon">🔒</div>
+        <div class="flow-benefit-title">Zero Data Egress</div>
+        <div class="flow-benefit-text">Every stage runs inside your perimeter. The LLM, the index, the embeddings — all on your hardware.</div>
+      </div>
+      <div class="flow-benefit">
+        <div class="flow-benefit-icon">⚡</div>
+        <div class="flow-benefit-title">Real-Time Incremental</div>
+        <div class="flow-benefit-text">New documents are detected, parsed, and indexed within minutes. Your index is always current.</div>
+      </div>
+      <div class="flow-benefit">
+        <div class="flow-benefit-icon">🧠</div>
+        <div class="flow-benefit-title">Schema-Aware Intelligence</div>
+        <div class="flow-benefit-text">Metadata models adapt to your taxonomy — fields, types, and relationships are preserved across sources.</div>
+      </div>
+      <div class="flow-benefit">
+        <div class="flow-benefit-icon">📊</div>
+        <div class="flow-benefit-title">Full Observability</div>
+        <div class="flow-benefit-text">Every document's journey is tracked. Queue depth, throughput, errors — live in the Operations Center.</div>
+      </div>
+    </div>
+
+    <div class="flow-throughput anim-in delay-4">
+      <div class="flow-tp-dot"></div>
+      <div class="flow-tp-text">Live throughput:</div>
+      <div class="flow-tp-num" id="flow-tp-counter">0</div>
+      <div class="flow-tp-text">documents processed / minute</div>
+    </div>
+
   </section>
 
   <!-- ── SCENE 2: CONTENT COCKPIT ── -->
@@ -1433,7 +1673,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 /* ═══════════════════════════════════════════════════════
    SCENE MANAGER
 ═══════════════════════════════════════════════════════ */
-const scenes=['s0','s1','s2','s3','s4','s5','s6','s7','s9','s10','s11','s12','s_gallery','s8'];
+const scenes=['s0','s1','s_hub','s_flow','s2','s3','s4','s5','s6','s7','s9','s10','s11','s12','s_gallery','s8'];
 let current=0,transitioning=false;
 
 const progressEl=document.getElementById('scene-progress');
@@ -1498,7 +1738,10 @@ document.addEventListener('touchend',e=>{
 ═══════════════════════════════════════════════════════ */
 function onEnter(sid){
   if(sid!=='s0')clearInterval(teaserTimer);
+  if(sid!=='s_hub')hubRunning=false;
   if(sid==='s0')initPain();
+  if(sid==='s_hub')initHub();
+  if(sid==='s_flow')initFlow();
   if(sid==='s1')initHero();
   if(sid==='s3')initJobs();
   if(sid==='s4')initSearch();
@@ -1726,6 +1969,195 @@ function initAiFeatures(){
   cards.forEach((el,i)=>{
     el.classList.remove('visible');
     setTimeout(()=>el.classList.add('visible'),i*90+350);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════
+   CONNECTOR HUB — Canvas Animation
+═══════════════════════════════════════════════════════ */
+let hubRunning=false;
+
+const innerNodes=[
+  {name:'Alfresco',      color:'#6366f1'},
+  {name:'IBM FileNet',   color:'#818cf8'},
+  {name:'Documentum',   color:'#6366f1'},
+  {name:'M-Files',       color:'#a855f7'},
+  {name:'SharePoint',    color:'#a855f7'},
+  {name:'Confluence',    color:'#c084fc'},
+  {name:'Nuxeo',         color:'#6366f1'},
+  {name:'OpenText',      color:'#818cf8'},
+];
+const outerNodes=[
+  {name:'JIRA',           color:'#a855f7'},
+  {name:'Dropbox',        color:'#10b981'},
+  {name:'Box',            color:'#10b981'},
+  {name:'Google Drive',   color:'#34d399'},
+  {name:'Email / IMAP',   color:'#06b6d4'},
+  {name:'CMIS',           color:'#06b6d4'},
+  {name:'HDFS',           color:'#22d3ee'},
+  {name:'Windows Shares', color:'#06b6d4'},
+  {name:'Filesystem',     color:'#22d3ee'},
+  {name:'RSS / Web',      color:'#10b981'},
+  {name:'Generic API',    color:'#06b6d4'},
+  {name:'LDAP',           color:'#a855f7'},
+];
+
+function initHub(){
+  const canvas=document.getElementById('hub-canvas');
+  if(!canvas)return;
+  hubRunning=true;
+
+  const wrap=canvas.parentElement;
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const W=wrap.clientWidth||600;
+  const H=wrap.clientHeight||420;
+  canvas.width=W*dpr;canvas.height=H*dpr;
+  canvas.style.width=W+'px';canvas.style.height=H+'px';
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+
+  const cx=W/2,cy=H/2;
+  const short=Math.min(W,H);
+  const R1=short*0.25;
+  const R2=short*0.43;
+
+  /* particles */
+  const parts=[];
+  function mkPart(idx,ring){
+    return {idx,ring,t:Math.random(),speed:0.0025+Math.random()*0.002};
+  }
+  innerNodes.forEach((_,i)=>{for(let k=0;k<3;k++)parts.push(mkPart(i,'inner'))});
+  outerNodes.forEach((_,i)=>{for(let k=0;k<2;k++)parts.push(mkPart(i,'outer'))});
+
+  let ang1=0,ang2=0,frame=0;
+
+  function npos(idx,total,r,rot){
+    const a=(idx/total)*Math.PI*2+rot;
+    return{x:cx+Math.cos(a)*r,y:cy+Math.sin(a)*r};
+  }
+
+  function draw(){
+    if(!hubRunning)return;
+    ctx.clearRect(0,0,W,H);
+    ang1+=0.004;ang2-=0.0022;frame++;
+
+    /* orbit rings */
+    [R1,R2].forEach((r,ri)=>{
+      ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+      ctx.strokeStyle=ri===0?'rgba(99,102,241,.14)':'rgba(99,102,241,.08)';
+      ctx.lineWidth=1;ctx.stroke();
+    });
+
+    /* spoke lines */
+    innerNodes.forEach((n,i)=>{
+      const p=npos(i,innerNodes.length,R1,ang1);
+      ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(p.x,p.y);
+      ctx.strokeStyle=n.color+'28';ctx.lineWidth=.8;ctx.stroke();
+    });
+    outerNodes.forEach((n,i)=>{
+      const p=npos(i,outerNodes.length,R2,ang2);
+      ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(p.x,p.y);
+      ctx.strokeStyle=n.color+'18';ctx.lineWidth=.6;ctx.stroke();
+    });
+
+    /* particles */
+    parts.forEach(p=>{
+      p.t+=p.speed;if(p.t>1)p.t=0;
+      const nodes=p.ring==='inner'?innerNodes:outerNodes;
+      const R=p.ring==='inner'?R1:R2;
+      const rot=p.ring==='inner'?ang1:ang2;
+      const n=nodes[p.idx];
+      const np=npos(p.idx,nodes.length,R,rot);
+      const px=np.x+(cx-np.x)*p.t;
+      const py=np.y+(cy-np.y)*p.t;
+      const alpha=Math.sin(p.t*Math.PI);
+      ctx.save();
+      ctx.shadowColor=n.color;ctx.shadowBlur=7;
+      ctx.beginPath();ctx.arc(px,py,1.8,0,Math.PI*2);
+      ctx.fillStyle=n.color+Math.round(alpha*220).toString(16).padStart(2,'0');
+      ctx.fill();
+      ctx.restore();
+    });
+
+    /* inner nodes */
+    innerNodes.forEach((n,i)=>{
+      const p=npos(i,innerNodes.length,R1,ang1);
+      ctx.save();
+      ctx.shadowColor=n.color;ctx.shadowBlur=14;
+      ctx.beginPath();ctx.arc(p.x,p.y,7,0,Math.PI*2);
+      ctx.fillStyle=n.color+'cc';ctx.fill();
+      ctx.restore();
+      /* label */
+      const dx=p.x-cx,dy=p.y-cy,len=Math.sqrt(dx*dx+dy*dy);
+      const lx=p.x+(dx/len)*14,ly=p.y+(dy/len)*14;
+      ctx.font='bold 9px Inter,sans-serif';
+      ctx.fillStyle='rgba(255,255,255,.82)';
+      ctx.textAlign=dx>0?'left':'right';ctx.textBaseline='middle';
+      ctx.fillText(n.name,lx,ly);
+    });
+
+    /* outer nodes */
+    outerNodes.forEach((n,i)=>{
+      const p=npos(i,outerNodes.length,R2,ang2);
+      ctx.save();
+      ctx.shadowColor=n.color;ctx.shadowBlur=10;
+      ctx.beginPath();ctx.arc(p.x,p.y,5,0,Math.PI*2);
+      ctx.fillStyle=n.color+'bb';ctx.fill();
+      ctx.restore();
+      const dx=p.x-cx,dy=p.y-cy,len=Math.sqrt(dx*dx+dy*dy);
+      const lx=p.x+(dx/len)*12,ly=p.y+(dy/len)*12;
+      ctx.font='8px Inter,sans-serif';
+      ctx.fillStyle='rgba(255,255,255,.65)';
+      ctx.textAlign=dx>0?'left':'right';ctx.textBaseline='middle';
+      ctx.fillText(n.name,lx,ly);
+    });
+
+    /* center pulse */
+    const pulse=0.5+Math.sin(frame*0.045)*0.5;
+    ctx.save();
+    ctx.shadowColor='#6366f1';ctx.shadowBlur=28+pulse*18;
+    ctx.beginPath();ctx.arc(cx,cy,30+pulse*4,0,Math.PI*2);
+    ctx.fillStyle=`rgba(99,102,241,${0.15+pulse*0.08})`;ctx.fill();
+    ctx.shadowBlur=18;
+    ctx.beginPath();ctx.arc(cx,cy,24,0,Math.PI*2);
+    ctx.fillStyle='#10101e';ctx.fill();
+    ctx.strokeStyle=`rgba(99,102,241,${0.55+pulse*0.35})`;
+    ctx.lineWidth=1.5;ctx.stroke();
+    ctx.restore();
+    /* center text */
+    ctx.font='bold 7.5px Inter,sans-serif';
+    ctx.fillStyle='rgba(255,255,255,.9)';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('AGENT AI',cx,cy-5.5);
+    ctx.fillText('INDEX',cx,cy+5.5);
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* ═══════════════════════════════════════════════════════
+   INTELLIGENCE PIPELINE
+═══════════════════════════════════════════════════════ */
+function initFlow(){
+  /* animate benefit cards */
+  document.querySelectorAll('.flow-benefit').forEach((el,i)=>{
+    el.classList.remove('visible');
+    setTimeout(()=>el.classList.add('visible'),i*120+600);
+  });
+  /* animate throughput counter */
+  const el=document.getElementById('flow-tp-counter');
+  if(el){
+    let v=0,target=247;
+    const iv=setInterval(()=>{
+      v=Math.min(v+Math.ceil((target-v)*0.12+1),target);
+      el.textContent=v.toLocaleString();
+      if(v>=target)clearInterval(iv);
+    },30);
+  }
+  /* stagger pipeline node pulses */
+  document.querySelectorAll('.flow-node-pulse').forEach((el,i)=>{
+    el.style.animationDelay=(i*0.4)+'s';
   });
 }
 
