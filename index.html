@@ -155,6 +155,42 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 #nav-next{right:20px}
 
 /* ═══════════════════════════════════════════
+   TOP NAVIGATION BAR
+═══════════════════════════════════════════ */
+#topnav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;height:52px;
+  background:rgba(2,2,8,.75);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+}
+.tnav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
+.tnav-logo{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,#1057f5,#6366f1);display:flex;align-items:center;justify-content:center}
+.tnav-logo svg{display:block}
+.tnav-name{font-size:14px;font-weight:800;letter-spacing:.02em;color:#fff}
+.tnav-links{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.tnav-link{
+  padding:5px 13px;border-radius:8px;border:none;background:transparent;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:500;
+  color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s ease;
+  white-space:nowrap;
+}
+.tnav-link:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.06)}
+.tnav-link.active{color:#fff;background:rgba(99,102,241,.22);font-weight:600}
+.tnav-cta{
+  padding:7px 16px;border-radius:8px;
+  background:linear-gradient(135deg,#1057f5,#6366f1);
+  border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  color:#fff;cursor:pointer;transition:all .2s;flex-shrink:0;
+  box-shadow:0 0 16px rgba(99,102,241,.35);
+}
+.tnav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(99,102,241,.5)}
+
+/* Scene body padding for nav bar */
+.scene{padding-top:52px}
+
+/* ═══════════════════════════════════════════
    SCENE 1 — HERO
 ═══════════════════════════════════════════ */
 #s1{flex-direction:column;text-align:center;padding:40px 24px}
@@ -336,6 +372,60 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 .pain-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,68,68,.7)}
 .pain-title{font-size:clamp(28px,4.5vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.1;color:#fff}
 .pain-title em{font-style:normal;background:linear-gradient(135deg,#fca5a5,#f87171,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* ── PAIN POINTS — new split layout ── */
+#s0{align-items:stretch;justify-content:stretch;padding:52px 0 0}
+.pain-split{display:flex;width:100%;height:100%;overflow:hidden}
+.pain-left{
+  flex:0 0 54%;display:flex;flex-direction:column;justify-content:center;
+  padding:36px 40px 28px 48px;
+  background:radial-gradient(ellipse 80% 80% at 0% 50%,rgba(239,68,68,.12) 0%,transparent 70%);
+}
+.pain-right{
+  flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:28px 36px 28px 20px;
+  background:radial-gradient(ellipse 80% 80% at 100% 50%,rgba(99,102,241,.1) 0%,transparent 70%);
+  border-left:1px solid rgba(255,255,255,.05);
+  position:relative;
+}
+.pain-eyebrow-new{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,68,68,.8);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.pain-eyebrow-new::before{content:'';width:20px;height:1px;background:rgba(239,68,68,.6);display:inline-block}
+.pain-headline{font-size:clamp(24px,3vw,38px);font-weight:900;letter-spacing:-.02em;line-height:1.15;color:#fff;margin-bottom:20px}
+.pain-headline em{font-style:normal;background:linear-gradient(90deg,#f87171,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pain-stats-row{display:flex;gap:20px;margin-bottom:24px}
+.pain-stat-block{flex:1;padding:14px 16px;border-radius:10px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.14)}
+.pain-stat-num{font-size:22px;font-weight:800;color:#f87171;line-height:1;margin-bottom:3px}
+.pain-stat-lbl{font-size:10px;color:rgba(255,255,255,.45);font-weight:500;line-height:1.4}
+.pain-rows{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.pain-row{display:flex;align-items:flex-start;gap:12px;opacity:0;transform:translateX(-14px);transition:all .45s cubic-bezier(.16,1,.3,1)}
+.pain-row.visible{opacity:1;transform:translateX(0)}
+.pain-row-icon{width:36px;height:36px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.18)}
+.pain-row-text{}
+.pain-row-q{font-size:12px;font-weight:700;color:rgba(255,255,255,.88);line-height:1.35;margin-bottom:2px}
+.pain-row-sub{font-size:10.5px;color:rgba(255,255,255,.38);line-height:1.4}
+.pain-cta-strip{display:flex;align-items:center;gap:12px;margin-top:4px}
+.pain-cta-btn{padding:9px 20px;border-radius:9px;background:linear-gradient(135deg,#1057f5,#6366f1);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 0 20px rgba(99,102,241,.3)}
+.pain-cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 24px rgba(99,102,241,.5)}
+.pain-cta-sub{font-size:11px;color:rgba(255,255,255,.35)}
+/* Right panel — teaser */
+.teaser-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(99,102,241,.7);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.teaser-label::before{content:'';width:16px;height:1px;background:rgba(99,102,241,.5)}
+.teaser-stack{position:relative;width:100%;max-width:480px}
+.teaser-frame{
+  position:relative;border-radius:11px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 12px 50px rgba(0,0,0,.5),0 0 0 1px rgba(99,102,241,.15),0 0 60px rgba(99,102,241,.08);
+  background:#0a0a14;
+}
+.teaser-frame img{width:100%;height:auto;display:block;max-height:220px;object-fit:cover;object-position:top;transition:opacity .6s ease}
+.teaser-frame img.fading{opacity:0}
+.teaser-bar{display:flex;align-items:center;gap:5px;padding:7px 10px;background:rgba(0,0,0,.4);border-bottom:1px solid rgba(255,255,255,.07)}
+.teaser-dot{width:8px;height:8px;border-radius:50%}
+.teaser-url{flex:1;height:16px;border-radius:3px;background:rgba(255,255,255,.07);margin-left:6px}
+.teaser-caption{margin-top:10px;font-size:11px;font-weight:600;color:rgba(255,255,255,.5);text-align:center;height:16px;transition:opacity .4s}
+.teaser-caption.fading{opacity:0}
+.teaser-pills{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;justify-content:center}
+.teaser-pill{padding:4px 11px;border-radius:20px;font-size:10px;font-weight:600;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);color:#a5b4fc}
+.teaser-arrow{position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;background:rgba(99,102,241,.3);border:1px solid rgba(99,102,241,.5);display:flex;align-items:center;justify-content:center;font-size:12px;color:#a5b4fc}
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:920px;margin-top:2px}
 .pain-card{padding:16px 15px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);text-align:left;opacity:0;transform:translateY(18px);transition:all .5s cubic-bezier(.16,1,.3,1)}
 .pain-card.visible{opacity:1;transform:translateY(0)}
@@ -574,7 +664,26 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 <!-- Canvas particle bg -->
 <canvas id="canvas-bg"></canvas>
 
-<!-- Navigation -->
+<!-- Top Navigation Bar -->
+<nav id="topnav">
+  <a class="tnav-brand" href="#" onclick="goTo(0);return false;">
+    <div class="tnav-logo">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h5v5H2zM9 2h5v5H9zM5 9h6v5H5z" fill="rgba(255,255,255,.9)" rx="1"/></svg>
+    </div>
+    <span class="tnav-name">Texter Agent</span>
+  </a>
+  <div class="tnav-links" id="tnav-links">
+    <button class="tnav-link active" data-scene-idx="0">Problem</button>
+    <button class="tnav-link" data-scene-idx="1">Platform</button>
+    <button class="tnav-link" data-scene-idx="2">Cockpit</button>
+    <button class="tnav-link" data-scene-idx="4">Search</button>
+    <button class="tnav-link" data-scene-idx="8">On-Premise</button>
+    <button class="tnav-link" data-scene-idx="12">Gallery</button>
+  </div>
+  <button class="tnav-cta" onclick="goTo(13)">Get Started</button>
+</nav>
+
+<!-- Navigation arrows -->
 <div class="nav-btn" id="nav-prev">‹</div>
 <div class="nav-btn" id="nav-next">›</div>
 
@@ -586,96 +695,87 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 
   <!-- ── SCENE 0: PAIN POINTS ── -->
   <section class="scene aurora-pain active" id="s0">
-    <div class="pain-eyebrow anim-in delay-1">🔥 Sound familiar?</div>
-    <div class="pain-title anim-in delay-2">Your enterprise data is <em>everywhere</em><br>and <em>nowhere</em> at the same time.</div>
+    <div class="pain-split">
 
-    <div class="pain-grid" id="pain-grid">
-      <div class="pain-card">
-        <div class="pain-card-icon">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="13" cy="6" rx="9" ry="3" stroke="#f87171" stroke-width="1.6"/>
-            <path d="M4 6v5c0 1.66 4.03 3 9 3s9-1.34 9-3V6" stroke="#f87171" stroke-width="1.6"/>
-            <path d="M4 11v5c0 1.66 4.03 3 9 3s9-1.34 9-3v-5" stroke="#f87171" stroke-width="1.6" opacity=".55"/>
-            <path d="M13 19v5" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M10 22l3 2 3-2" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="pain-card-q">Sitting on terabytes of unstructured content with no way to unlock its value?</div>
-        <div class="pain-card-sub">Documents, emails, reports — sitting idle in silos nobody can fully search.</div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-card-icon">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="13" cy="13" r="2.2" fill="#f87171"/>
-            <circle cx="3.5" cy="4.5" r="2" stroke="#f87171" stroke-width="1.4" fill="none"/>
-            <circle cx="22.5" cy="4.5" r="2" stroke="#f87171" stroke-width="1.4" fill="none"/>
-            <circle cx="3.5" cy="21.5" r="2" stroke="#f87171" stroke-width="1.4" fill="none"/>
-            <circle cx="22.5" cy="21.5" r="2" stroke="#f87171" stroke-width="1.4" fill="none"/>
-            <line x1="13" y1="13" x2="3.5" y2="4.5" stroke="#f87171" stroke-width="1.2" stroke-dasharray="2.5 2"/>
-            <line x1="13" y1="13" x2="22.5" y2="4.5" stroke="#f87171" stroke-width="1.2" stroke-dasharray="2.5 2"/>
-            <line x1="13" y1="13" x2="3.5" y2="21.5" stroke="#f87171" stroke-width="1.2" stroke-dasharray="2.5 2"/>
-            <line x1="13" y1="13" x2="22.5" y2="21.5" stroke="#f87171" stroke-width="1.2" stroke-dasharray="2.5 2"/>
-          </svg>
-        </div>
-        <div class="pain-card-q">So many content sources it's easy to get completely lost?</div>
-        <div class="pain-card-sub">SharePoint, Alfresco, M-Files, FileNet — none of them talk to each other.</div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-card-icon">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="22" height="22" rx="3" stroke="#f87171" stroke-width="1.5"/>
-            <path d="M2 9h8M10 2v7M10 9h6M16 9v7M16 16H10M10 16v6" stroke="#f87171" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="21" cy="21" r="3.5" fill="rgba(251,146,60,.15)" stroke="#fb923c" stroke-width="1.4"/>
-            <path d="M20 21l1 1 1.5-1.5" stroke="#fb923c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="pain-card-q">You need to find content by context, not by where it lives?</div>
-        <div class="pain-card-sub">Knowing the folder name shouldn't be a prerequisite for finding the document.</div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-card-icon">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 8.5C8 5.5 11.5 4 13 4c5 0 9 4 9 9s-4 9-9 9-9-4-9-9c0-1.5.5-3 1-4" stroke="#f87171" stroke-width="1.5" stroke-linecap="round" opacity=".45"/>
-            <path d="M9 7L3.5 3M3.5 3L3 7M3.5 3L7 7.5" stroke="#f87171" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="8" y1="8" x2="18" y2="18" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="18" y1="8" x2="8" y2="18" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="pain-card-q">Data too sensitive to leave your walls — but missing out on AI entirely?</div>
-        <div class="pain-card-sub">GDPR, sovereignty, and compliance requirements block every cloud AI option.</div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-card-icon">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="13" cy="14" r="9" stroke="#f87171" stroke-width="1.5"/>
-            <path d="M13 8v6.5l4 2" stroke="#f87171" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M13 5V3" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M7.5 6.5 L6 5" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M18.5 6.5 L20 5" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M10 22c.5.5 1 1 3 1s2.5-.5 3-1" stroke="#ef4444" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="pain-card-q">Employees burning hours on document hunting that should take seconds?</div>
-        <div class="pain-card-sub">Every search means a journey across six different portals and a prayer.</div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-card-icon">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="4" width="14" height="18" rx="2" stroke="#f87171" stroke-width="1.5"/>
-            <rect x="5" y="2" width="14" height="18" rx="2" fill="rgba(239,68,68,.05)" stroke="#f87171" stroke-width="1.5" opacity=".5"/>
-            <path d="M7 10h6M7 14h4" stroke="#f87171" stroke-width="1.4" stroke-linecap="round" opacity=".5"/>
-            <circle cx="20" cy="20" r="4.5" stroke="#fbbf24" stroke-width="1.5"/>
-            <path d="M20 17.5v2.5l1.5 1" stroke="#fbbf24" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M23.5 23.5L25 25" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="pain-card-q">E-discovery and audit requests turning into weeks of manual misery?</div>
-        <div class="pain-card-sub">Your compliance team dreads every legal hold and regulatory inquiry.</div>
-      </div>
-    </div>
+      <!-- LEFT: Pain narrative -->
+      <div class="pain-left">
+        <div class="pain-eyebrow-new">The Enterprise Content Crisis</div>
+        <h1 class="pain-headline">Your data is <em>everywhere</em><br>and nowhere at once.</h1>
 
-    <div class="pain-relief anim-in delay-5">
-      <span>Texter Agent</span> was built to solve exactly this — in ways you never imagined possible. →
+        <div class="pain-stats-row">
+          <div class="pain-stat-block">
+            <div class="pain-stat-num">2.5h</div>
+            <div class="pain-stat-lbl">wasted daily per employee on document hunting</div>
+          </div>
+          <div class="pain-stat-block">
+            <div class="pain-stat-num">60+</div>
+            <div class="pain-stat-lbl">content silos in the average enterprise</div>
+          </div>
+          <div class="pain-stat-block">
+            <div class="pain-stat-num">€2.5M</div>
+            <div class="pain-stat-lbl">annual productivity loss per 1,000 employees</div>
+          </div>
+        </div>
+
+        <div class="pain-rows" id="pain-grid">
+          <div class="pain-row">
+            <div class="pain-row-icon"><svg width="20" height="20" viewBox="0 0 26 26" fill="none"><ellipse cx="13" cy="6" rx="9" ry="3" stroke="#f87171" stroke-width="1.6"/><path d="M4 6v5c0 1.66 4.03 3 9 3s9-1.34 9-3V6" stroke="#f87171" stroke-width="1.6"/><path d="M4 11v5c0 1.66 4.03 3 9 3s9-1.34 9-3v-5" stroke="#f87171" stroke-width="1.6" opacity=".5"/></svg></div>
+            <div class="pain-row-text">
+              <div class="pain-row-q">Terabytes of dark content locked in disconnected silos</div>
+              <div class="pain-row-sub">SharePoint, Alfresco, FileNet, Documentum — none talk to each other.</div>
+            </div>
+          </div>
+          <div class="pain-row">
+            <div class="pain-row-icon"><svg width="20" height="20" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="9" stroke="#f87171" stroke-width="1.5"/><line x1="9" y1="9" x2="17" y2="17" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/><line x1="17" y1="9" x2="9" y2="17" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div class="pain-row-text">
+              <div class="pain-row-q">AI is off-limits — your data can't leave your perimeter</div>
+              <div class="pain-row-sub">GDPR, data sovereignty, and compliance block every cloud AI option.</div>
+            </div>
+          </div>
+          <div class="pain-row">
+            <div class="pain-row-icon"><svg width="20" height="20" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="14" r="9" stroke="#f87171" stroke-width="1.5"/><path d="M13 8v6.5l4 2" stroke="#f87171" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="pain-row-text">
+              <div class="pain-row-q">E-discovery and audits spiral into weeks of manual misery</div>
+              <div class="pain-row-sub">No semantic search means no quick answers to legal or regulatory holds.</div>
+            </div>
+          </div>
+          <div class="pain-row">
+            <div class="pain-row-icon"><svg width="20" height="20" viewBox="0 0 26 26" fill="none"><rect x="3" y="4" width="14" height="18" rx="2" stroke="#f87171" stroke-width="1.5"/><rect x="6" y="2" width="14" height="18" rx="2" stroke="#f87171" stroke-width="1.5" opacity=".4"/><path d="M6 10h7M6 14h5" stroke="#f87171" stroke-width="1.4" stroke-linecap="round" opacity=".6"/></svg></div>
+            <div class="pain-row-text">
+              <div class="pain-row-q">No single intelligence layer across your content landscape</div>
+              <div class="pain-row-sub">Metadata is inconsistent, schemas diverge, zero cross-repo search.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pain-cta-strip">
+          <button class="pain-cta-btn" onclick="goTo(1)">See how we solve it →</button>
+          <span class="pain-cta-sub">100% on-premise · no data leaves your walls</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: Live platform teaser -->
+      <div class="pain-right">
+        <div class="teaser-label">Platform Preview</div>
+        <div class="teaser-stack">
+          <div class="teaser-frame glass">
+            <div class="teaser-bar">
+              <div class="teaser-dot" style="background:#ef4444"></div>
+              <div class="teaser-dot" style="background:#fbbf24"></div>
+              <div class="teaser-dot" style="background:#10b981"></div>
+              <div class="teaser-url"></div>
+            </div>
+            <img id="teaser-img" src="screenshots/s02.jpg" alt="Texter Agent Platform" />
+          </div>
+          <div class="teaser-caption" id="teaser-caption">Content Cockpit — Pipeline Topology</div>
+          <div class="teaser-pills">
+            <span class="teaser-pill">Content Cockpit</span>
+            <span class="teaser-pill">Enterprise Search</span>
+            <span class="teaser-pill">Analytics</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1357,11 +1457,28 @@ function goTo(idx){
   document.querySelectorAll('.prog-dot').forEach((d,i)=>{d.classList.toggle('active',i===idx)});
   current=idx;
   onEnter(scenes[idx]);
+  syncTopNav(idx);
   setTimeout(()=>{transitioning=false},750);
 }
 
 document.getElementById('nav-prev').addEventListener('click',()=>goTo(current-1));
 document.getElementById('nav-next').addEventListener('click',()=>goTo(current+1));
+
+/* Top nav links */
+document.querySelectorAll('.tnav-link').forEach(btn=>{
+  btn.addEventListener('click',()=>goTo(parseInt(btn.dataset.sceneIdx)));
+});
+function syncTopNav(idx){
+  const links=document.querySelectorAll('.tnav-link');
+  links.forEach(b=>b.classList.remove('active'));
+  /* Find the nav link whose scene-idx is closest ≤ current */
+  let best=null,bestDiff=Infinity;
+  links.forEach(b=>{
+    const si=parseInt(b.dataset.sceneIdx);
+    if(si<=idx && idx-si<bestDiff){bestDiff=idx-si;best=b;}
+  });
+  if(best)best.classList.add('active');
+}
 document.addEventListener('keydown',e=>{
   if(lbOpen)return;
   if(e.key==='ArrowRight'||e.key==='ArrowDown')goTo(current+1);
@@ -1380,6 +1497,7 @@ document.addEventListener('touchend',e=>{
    SCENE ENTER CALLBACKS
 ═══════════════════════════════════════════════════════ */
 function onEnter(sid){
+  if(sid!=='s0')clearInterval(teaserTimer);
   if(sid==='s0')initPain();
   if(sid==='s1')initHero();
   if(sid==='s3')initJobs();
@@ -1537,13 +1655,39 @@ function initReports(){
   if(sb)setTimeout(()=>{sb.style.width='90.9%'},600);
 }
 
-/* --- SCENE 0: Pain Points --- */
+/* --- SCENE 0: Pain Points + Teaser Rotator --- */
+const teaserSlides=[
+  {src:'screenshots/s02.jpg', cap:'Content Cockpit — Pipeline Topology'},
+  {src:'screenshots/s05.jpg', cap:'Enterprise Search — Performance Intelligence'},
+  {src:'screenshots/s04.jpg', cap:'Content Analytics — Inventory Intelligence'},
+  {src:'screenshots/s21.jpg', cap:'Operations Center — Live Monitor'},
+];
+let teaserIdx=0,teaserTimer=null;
+function rotateTeaserTo(idx){
+  const img=document.getElementById('teaser-img');
+  const cap=document.getElementById('teaser-caption');
+  if(!img||!cap)return;
+  img.style.opacity='0';cap.style.opacity='0';
+  setTimeout(()=>{
+    img.src=teaserSlides[idx].src;
+    cap.textContent=teaserSlides[idx].cap;
+    img.style.opacity='1';cap.style.opacity='1';
+  },400);
+}
 function initPain(){
-  const cards=document.querySelectorAll('#pain-grid .pain-card');
-  cards.forEach((el,i)=>{
+  const rows=document.querySelectorAll('#pain-grid .pain-row');
+  rows.forEach((el,i)=>{
     el.classList.remove('visible');
-    setTimeout(()=>el.classList.add('visible'),i*110+200);
+    setTimeout(()=>el.classList.add('visible'),i*130+300);
   });
+  /* start teaser rotation */
+  clearInterval(teaserTimer);
+  teaserIdx=0;
+  rotateTeaserTo(0);
+  teaserTimer=setInterval(()=>{
+    teaserIdx=(teaserIdx+1)%teaserSlides.length;
+    rotateTeaserTo(teaserIdx);
+  },3200);
 }
 
 /* --- SCENE 12: On-Prem --- */
