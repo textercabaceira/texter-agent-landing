@@ -45,6 +45,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 .aurora-flow{background:radial-gradient(ellipse 75% 65% at 50% 35%,rgba(16,185,129,.18) 0%,rgba(6,182,212,.12) 45%,transparent 70%),radial-gradient(ellipse 45% 55% at 80% 75%,rgba(99,102,241,.15) 0%,transparent 60%),#020608}
 .aurora-semantic{background:radial-gradient(ellipse 80% 70% at 50% 45%,rgba(6,182,212,.2) 0%,rgba(99,102,241,.15) 50%,transparent 75%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(168,85,247,.12) 0%,transparent 60%),#010408}
 .aurora-fortress{background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(16,185,129,.18) 0%,rgba(99,102,241,.1) 55%,transparent 78%),radial-gradient(ellipse 35% 45% at 90% 15%,rgba(6,182,212,.1) 0%,transparent 60%),#010806}
+.aurora-agentpipe{background:radial-gradient(ellipse 85% 65% at 50% 40%,rgba(168,85,247,.28) 0%,rgba(99,102,241,.15) 45%,transparent 72%),radial-gradient(ellipse 40% 50% at 5% 80%,rgba(6,182,212,.15) 0%,transparent 60%),radial-gradient(ellipse 35% 40% at 95% 20%,rgba(16,185,129,.12) 0%,transparent 55%),#030108}
 
 /* ═══════════════════════════════════════════
    GLASSMORPHISM PANEL
@@ -72,6 +73,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .chip-indigo{background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.4);color:#a5b4fc}
 .chip-cyan{background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.35);color:#67e8f9}
+.chip-purple{background:rgba(168,85,247,.14);border:1px solid rgba(168,85,247,.4);color:#c4b5fd}
 .chip-green{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35);color:#6ee7b7}
 .chip-amber{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35);color:#fcd34d}
 .chip-red{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35);color:#fca5a5}
@@ -207,24 +209,113 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'In
 .hero-divider{width:1px;height:40px;background:rgba(255,255,255,.12)}
 
 /* ═══════════════════════════════════════════
-   SCENE 2 — CONTENT COCKPIT
+   SCENE 2 — CONTENT COCKPIT (redesigned)
 ═══════════════════════════════════════════ */
-#s2{flex-direction:column;padding:40px 32px;gap:20px}
+#s2{flex-direction:column;padding:26px 20px;gap:12px}
 .s2-header{text-align:center}
-.s2-title{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.02em;color:#fff;margin:10px 0 8px}
-.s2-desc{font-size:15px;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto}
-.topology-wrap{display:flex;align-items:center;justify-content:center;gap:0;width:100%;max-width:920px;position:relative}
-.topo-col{display:flex;flex-direction:column;gap:10px;align-items:center;min-width:160px}
-.topo-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:4px}
-.topo-card{padding:10px 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);min-width:150px;transition:all .3s}
-.topo-card:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
-.topo-card-icon{font-size:16px;margin-bottom:4px}
-.topo-card-name{font-size:12px;font-weight:600;color:#fff}
-.topo-card-sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:2px}
-.topo-arrow{flex:1;height:2px;background:linear-gradient(90deg,rgba(99,102,241,.3),rgba(6,182,212,.3));position:relative;min-width:40px;max-width:80px}
-.topo-arrow::after{content:'';position:absolute;right:-6px;top:-4px;border:4px solid transparent;border-left:7px solid rgba(6,182,212,.5)}
-.topo-dot{width:8px;height:8px;border-radius:50%;background:#6366f1;box-shadow:0 0 10px #6366f1;position:absolute;top:-3px;left:0;animation:flow 2s ease-in-out infinite}
-@keyframes flow{0%{left:0;opacity:0}20%{opacity:1}80%{opacity:1}100%{left:100%;opacity:0}}
+.s2-title{font-size:clamp(24px,3.6vw,40px);font-weight:800;letter-spacing:-.02em;color:#fff;margin:8px 0 5px}
+.s2-desc{font-size:13.5px;color:rgba(255,255,255,.45);max-width:460px;margin:0 auto}
+.topology-wrap{display:flex;align-items:center;justify-content:center;gap:0;width:100%;max-width:980px;position:relative}
+.topo-col{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:0}
+.topo-label{font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:6px;text-align:center}
+/* Repo cards — redesigned */
+.topo-card{padding:8px 11px;border-radius:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);min-width:148px;transition:all .25s;display:flex;align-items:center;gap:9px;position:relative;overflow:hidden}
+.topo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.02),transparent);opacity:0;transition:opacity .25s;pointer-events:none}
+.topo-card:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);transform:translateX(2px)}
+.topo-card:hover::after{opacity:1}
+.topo-card-stripe{width:3px;min-height:32px;border-radius:2px;flex-shrink:0;align-self:stretch}
+.topo-card-body{flex:1;min-width:0}
+.topo-card-icon{font-size:13px;line-height:1.3}
+.topo-card-name{font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topo-card-sub{font-size:9px;color:rgba(255,255,255,.33);margin-top:1px}
+.topo-card-badge{font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0;align-self:center;background:rgba(16,185,129,.14);color:#6ee7b7;border:1px solid rgba(16,185,129,.28)}
+/* Animated connector arrows */
+.topo-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:48px;max-width:72px;flex-shrink:0;padding:0 4px}
+.topo-arrow-line{width:100%;height:1.5px;background:linear-gradient(90deg,rgba(99,102,241,.5),rgba(6,182,212,.6));position:relative;overflow:hidden;border-radius:1px}
+.topo-arrow-line::after{content:'▶';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:rgba(6,182,212,.7);font-size:8px;line-height:1}
+.topo-dot{width:6px;height:6px;border-radius:50%;background:#6366f1;box-shadow:0 0 8px #6366f1;position:absolute;top:50%;transform:translateY(-50%);left:-6px;animation:flow 2.4s ease-in-out infinite}
+.topo-dot.d2{animation-delay:.8s;background:#06b6d4;box-shadow:0 0 8px #06b6d4}
+.topo-dot.d3{animation-delay:1.6s;background:#a5b4fc;box-shadow:0 0 7px #a5b4fc}
+.topo-arrow-lbl{font-size:8px;color:rgba(255,255,255,.18);letter-spacing:.07em;text-transform:uppercase}
+@keyframes flow{0%{left:-6px;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% + 6px);opacity:0}}
+/* Improved Agent AI Index node */
+.topo-index-wrap{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:152px}
+.topo-index{padding:14px 12px;border-radius:14px;background:linear-gradient(145deg,rgba(99,102,241,.12),rgba(6,182,212,.07));border:1.5px solid rgba(99,102,241,.38);text-align:center;position:relative;overflow:hidden;box-shadow:0 0 28px rgba(99,102,241,.18),inset 0 0 20px rgba(99,102,241,.05)}
+.topo-index::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(99,102,241,.25),transparent 65%);pointer-events:none}
+.topo-index-ring{position:absolute;border-radius:50%;border:1px solid;top:50%;left:50%;pointer-events:none}
+.topo-index-ring:nth-child(1){width:64px;height:64px;transform:translate(-50%,-60%);border-color:rgba(99,102,241,.4);animation:topo-pulse 3s ease-out infinite}
+.topo-index-ring:nth-child(2){width:92px;height:92px;transform:translate(-50%,-60%);border-color:rgba(99,102,241,.22);animation:topo-pulse 3s ease-out .85s infinite}
+.topo-index-ring:nth-child(3){width:122px;height:122px;transform:translate(-50%,-60%);border-color:rgba(99,102,241,.1);animation:topo-pulse 3s ease-out 1.7s infinite}
+@keyframes topo-pulse{0%{opacity:.8;transform:translate(-50%,-60%) scale(.75)}100%{opacity:0;transform:translate(-50%,-60%) scale(1.25)}}
+.topo-index-icon{font-size:28px;position:relative;z-index:1;filter:drop-shadow(0 0 14px rgba(99,102,241,.9));display:block;margin-bottom:5px}
+.topo-index-name{font-size:12px;font-weight:700;color:#a5b4fc;position:relative;z-index:1}
+.topo-index-meta{font-size:9px;color:rgba(255,255,255,.32);margin-top:3px;position:relative;z-index:1}
+.topo-index-chips{display:flex;flex-direction:column;gap:3px;margin-top:7px;position:relative;z-index:1}
+.topo-index-chip{font-size:8.5px;padding:2px 7px;border-radius:3px;background:rgba(99,102,241,.14);border:1px solid rgba(99,102,241,.24);color:#a5b4fc;text-align:center}
+
+/* ═══════════════════════════════════════════
+   SCENE S_AGENTPIPE — PIPELINE ORCHESTRATION
+═══════════════════════════════════════════ */
+#s_agentpipe{flex-direction:column;padding:22px 16px;gap:10px;align-items:center}
+.agp-header{text-align:center;max-width:700px}
+.agp-title{font-size:clamp(22px,3.2vw,36px);font-weight:800;letter-spacing:-.02em;color:#fff;margin:7px 0 5px}
+.agp-desc{font-size:13px;color:rgba(255,255,255,.42);max-width:540px;margin:0 auto}
+/* Pipeline body — 5 stage horizontal flow */
+.agp-body{display:flex;align-items:stretch;justify-content:center;gap:0;width:100%;max-width:1020px;position:relative}
+.agp-stage{display:flex;flex-direction:column;align-items:stretch;gap:5px}
+.agp-stage-label{font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:5px;text-align:center;white-space:nowrap}
+/* Base node style */
+.agp-node{padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-size:10.5px;font-weight:600;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:7px;transition:all .25s;cursor:default;white-space:nowrap}
+.agp-node:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);transform:scale(1.02)}
+.agp-node span{font-size:13px;flex-shrink:0}
+/* Source nodes */
+.agp-node-src{border-color:rgba(99,102,241,.2);background:rgba(99,102,241,.05)}
+.agp-node-src:hover{border-color:rgba(99,102,241,.38)}
+/* Aggregation nodes */
+.agp-node-agg{border-color:rgba(6,182,212,.3);background:rgba(6,182,212,.07);color:#67e8f9;min-width:120px}
+.agp-node-agg:hover{border-color:rgba(6,182,212,.5);box-shadow:0 0 12px rgba(6,182,212,.15)}
+/* Pipeline hub (center) */
+.agp-hub{padding:12px 14px;border-radius:13px;background:linear-gradient(145deg,rgba(168,85,247,.14),rgba(99,102,241,.1));border:1.5px solid rgba(168,85,247,.4);text-align:center;position:relative;overflow:hidden;box-shadow:0 0 28px rgba(168,85,247,.2),inset 0 1px 0 rgba(255,255,255,.07);min-width:130px}
+.agp-hub::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(168,85,247,.25),transparent 65%);pointer-events:none}
+.agp-hub-ring{position:absolute;border-radius:50%;border:1px solid rgba(168,85,247,.3);top:50%;left:50%;animation:agp-ring 2.8s ease-out infinite;pointer-events:none}
+.agp-hub-ring:nth-child(1){width:60px;height:60px;transform:translate(-50%,-50%);animation-delay:0s}
+.agp-hub-ring:nth-child(2){width:85px;height:85px;transform:translate(-50%,-50%);border-color:rgba(168,85,247,.18);animation-delay:.9s}
+.agp-hub-ring:nth-child(3){width:112px;height:112px;transform:translate(-50%,-50%);border-color:rgba(168,85,247,.08);animation-delay:1.8s}
+@keyframes agp-ring{0%{opacity:.9;transform:translate(-50%,-50%) scale(.65)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.2)}}
+.agp-hub-icon{font-size:24px;position:relative;z-index:1;filter:drop-shadow(0 0 12px rgba(168,85,247,.9));display:block;margin-bottom:4px}
+.agp-hub-name{font-size:11.5px;font-weight:700;color:#c4b5fd;position:relative;z-index:1}
+.agp-hub-sub{font-size:9px;color:rgba(255,255,255,.35);margin-top:2px;position:relative;z-index:1}
+.agp-hub-badges{display:flex;flex-direction:column;gap:3px;margin-top:7px;position:relative;z-index:1}
+.agp-hub-badge{font-size:8px;padding:2px 7px;border-radius:3px;background:rgba(168,85,247,.13);border:1px solid rgba(168,85,247,.24);color:#c4b5fd;text-align:center}
+/* Transformer nodes */
+.agp-node-trans{border-color:rgba(16,185,129,.22);background:rgba(16,185,129,.05);min-width:122px;justify-content:flex-start}
+.agp-node-trans:hover{border-color:rgba(16,185,129,.4);box-shadow:0 0 10px rgba(16,185,129,.1)}
+.agp-trans-num{width:18px;height:18px;border-radius:50%;background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.35);color:#6ee7b7;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* Output/enterprise nodes */
+.agp-node-out{border-color:rgba(245,158,11,.2);background:rgba(245,158,11,.05);color:rgba(255,255,255,.8);min-width:122px}
+.agp-node-out:hover{border-color:rgba(245,158,11,.38);box-shadow:0 0 10px rgba(245,158,11,.1)}
+/* Animated connectors between stages */
+.agp-connector{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:36px;max-width:52px;flex-shrink:0;gap:6px;padding:0 3px}
+.agp-conn-line{width:100%;height:1.5px;position:relative;overflow:hidden;border-radius:1px}
+.agp-conn-line-1{background:linear-gradient(90deg,rgba(99,102,241,.5),rgba(6,182,212,.6))}
+.agp-conn-line-2{background:linear-gradient(90deg,rgba(6,182,212,.5),rgba(168,85,247,.6))}
+.agp-conn-line-3{background:linear-gradient(90deg,rgba(168,85,247,.5),rgba(16,185,129,.6))}
+.agp-conn-line-4{background:linear-gradient(90deg,rgba(16,185,129,.5),rgba(245,158,11,.6))}
+.agp-conn-line::after{content:'▶';position:absolute;right:-9px;top:50%;transform:translateY(-50%);font-size:7px;line-height:1}
+.agp-conn-line-1::after{color:rgba(6,182,212,.8)}
+.agp-conn-line-2::after{color:rgba(168,85,247,.8)}
+.agp-conn-line-3::after{color:rgba(16,185,129,.8)}
+.agp-conn-line-4::after{color:rgba(245,158,11,.8)}
+.agp-particle{position:absolute;width:5px;height:5px;border-radius:50%;top:50%;transform:translateY(-50%);animation:agp-flow 2s linear infinite}
+.agp-particle.p2{animation-delay:.67s}
+.agp-particle.p3{animation-delay:1.33s}
+.agp-particle-c1{background:#6366f1;box-shadow:0 0 6px #6366f1}
+.agp-particle-c2{background:#06b6d4;box-shadow:0 0 6px #06b6d4}
+.agp-particle-c3{background:#a855f7;box-shadow:0 0 6px #a855f7}
+.agp-particle-c4{background:#10b981;box-shadow:0 0 6px #10b981}
+.agp-particle-c5{background:#f59e0b;box-shadow:0 0 6px #f59e0b}
+@keyframes agp-flow{0%{left:-5px;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:calc(100% + 5px);opacity:0}}
+.agp-conn-lbl{font-size:7.5px;color:rgba(255,255,255,.16);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
 
 /* ═══════════════════════════════════════════
    SCENE 3 — JOBS ENGINE
@@ -1124,7 +1215,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 
   </section>
 
-  <!-- ── SCENE 2: CONTENT COCKPIT ── -->
+  <!-- ── SCENE 2: CONTENT COCKPIT (redesigned) ── -->
   <section class="scene aurora-blue" id="s2">
     <div class="s2-header">
       <div class="chip chip-cyan anim-in delay-1">Content Cockpit</div>
@@ -1132,49 +1223,251 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
       <div class="s2-desc anim-in delay-3">Connect any repository. Define crawl jobs. Feed the Agent AI Index — all from a single control plane.</div>
     </div>
     <div class="topology-wrap anim-in delay-4">
-      <!-- Repos -->
-      <div class="topo-col">
-        <div class="topo-label">Repositories</div>
-        <div class="topo-card"><div class="topo-card-icon">📁</div><div class="topo-card-name">Alfresco HR</div><div class="topo-card-sub">ECM · Active</div></div>
-        <div class="topo-card"><div class="topo-card-icon">📁</div><div class="topo-card-name">Alfresco Legal</div><div class="topo-card-sub">ECM · Active</div></div>
-        <div class="topo-card"><div class="topo-card-icon">🗂</div><div class="topo-card-name">M-Files</div><div class="topo-card-sub">DMS · Active</div></div>
-        <div class="topo-card"><div class="topo-card-icon">☁️</div><div class="topo-card-name">SharePoint</div><div class="topo-card-sub">Cloud · Active</div></div>
-        <div class="topo-card"><div class="topo-card-icon">🔵</div><div class="topo-card-name">IBM FileNet</div><div class="topo-card-sub">ECM · Active</div></div>
-        <div class="topo-card"><div class="topo-card-icon">🟣</div><div class="topo-card-name">Documentum</div><div class="topo-card-sub">ECM · Active</div></div>
-      </div>
 
-      <!-- Arrow 1 -->
-      <div class="topo-arrow" style="position:relative">
-        <div class="topo-dot"></div>
-      </div>
-
-      <!-- Crawl Jobs -->
-      <div class="topo-col">
-        <div class="topo-label">Crawl Jobs</div>
-        <div class="topo-card" style="border-color:rgba(99,102,241,.3)"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">HR → Agent AI Index</div><div class="topo-card-sub chip chip-green" style="margin-top:4px;display:inline-flex;font-size:9px;padding:2px 7px">191 docs</div></div>
-        <div class="topo-card" style="border-color:rgba(99,102,241,.3)"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">Legal → Agent AI Index</div><div class="topo-card-sub chip chip-green" style="margin-top:4px;display:inline-flex;font-size:9px;padding:2px 7px">110 docs</div></div>
-        <div class="topo-card" style="border-color:rgba(99,102,241,.3)"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">MFiles → Agent AI Index</div><div class="topo-card-sub chip chip-green" style="margin-top:4px;display:inline-flex;font-size:9px;padding:2px 7px">106 docs</div></div>
-        <div class="topo-card" style="border-color:rgba(99,102,241,.3)"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">SharePoint → Agent AI Index</div><div class="topo-card-sub chip chip-green" style="margin-top:4px;display:inline-flex;font-size:9px;padding:2px 7px">6 docs</div></div>
-        <div class="topo-card" style="border-color:rgba(99,102,241,.3)"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">FileNet → Agent AI Index</div><div class="topo-card-sub chip chip-green" style="margin-top:4px;display:inline-flex;font-size:9px;padding:2px 7px">243 docs</div></div>
-        <div class="topo-card" style="border-color:rgba(99,102,241,.3)"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">Documentum → Agent AI Index</div><div class="topo-card-sub chip chip-green" style="margin-top:4px;display:inline-flex;font-size:9px;padding:2px 7px">189 docs</div></div>
-      </div>
-
-      <!-- Arrow 2 -->
-      <div class="topo-arrow" style="position:relative">
-        <div class="topo-dot" style="animation-delay:.8s"></div>
-      </div>
-
-      <!-- Agent AI Index -->
-      <div class="topo-col">
-        <div class="topo-label">Search Index</div>
-        <div class="topo-card" style="background:rgba(99,102,241,.1);border-color:rgba(99,102,241,.4)">
-          <div style="font-size:24px;text-align:center;padding:10px 0">🔮</div>
-          <div class="topo-card-name" style="text-align:center;color:#a5b4fc">Agent AI Index</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.4);text-align:center;margin-top:4px">384-dim Embeddings</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.4);text-align:center">BM25 + Hybrid Rank</div>
-          <div class="chip chip-green" style="margin:8px auto 0;display:table;font-size:9px;padding:2px 8px">849M indexed</div>
+      <!-- ── Col 1: Source Repos ── -->
+      <div class="topo-col" style="min-width:152px">
+        <div class="topo-label">Source Repositories</div>
+        <div class="topo-card">
+          <div class="topo-card-stripe" style="background:#6366f1"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">📁</div><div class="topo-card-name">Alfresco HR</div><div class="topo-card-sub">ECM · Crawling</div></div>
+          <div class="topo-card-badge">191</div>
+        </div>
+        <div class="topo-card">
+          <div class="topo-card-stripe" style="background:#6366f1"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">📁</div><div class="topo-card-name">Alfresco Legal</div><div class="topo-card-sub">ECM · Active</div></div>
+          <div class="topo-card-badge">110</div>
+        </div>
+        <div class="topo-card">
+          <div class="topo-card-stripe" style="background:#a855f7"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">🗂</div><div class="topo-card-name">M-Files</div><div class="topo-card-sub">DMS · Active</div></div>
+          <div class="topo-card-badge">106</div>
+        </div>
+        <div class="topo-card">
+          <div class="topo-card-stripe" style="background:#3b82f6"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">☁️</div><div class="topo-card-name">SharePoint</div><div class="topo-card-sub">Cloud · Active</div></div>
+          <div class="topo-card-badge">6</div>
+        </div>
+        <div class="topo-card">
+          <div class="topo-card-stripe" style="background:#818cf8"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">🔵</div><div class="topo-card-name">IBM FileNet</div><div class="topo-card-sub">ECM · Active</div></div>
+          <div class="topo-card-badge">243</div>
+        </div>
+        <div class="topo-card">
+          <div class="topo-card-stripe" style="background:#ec4899"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">🟣</div><div class="topo-card-name">Documentum</div><div class="topo-card-sub">ECM · Active</div></div>
+          <div class="topo-card-badge">189</div>
         </div>
       </div>
+
+      <!-- ── Arrow 1 ── -->
+      <div class="topo-arrow">
+        <div class="topo-arrow-line">
+          <div class="topo-dot"></div>
+          <div class="topo-dot d2"></div>
+          <div class="topo-dot d3"></div>
+        </div>
+        <div class="topo-arrow-lbl">crawl</div>
+      </div>
+
+      <!-- ── Col 2: Crawl Jobs ── -->
+      <div class="topo-col" style="min-width:168px">
+        <div class="topo-label">Active Crawl Jobs</div>
+        <div class="topo-card" style="border-color:rgba(99,102,241,.22)">
+          <div class="topo-card-stripe" style="background:rgba(99,102,241,.7)"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">HR → Agent AI</div><div class="topo-card-sub">Running · Full crawl</div></div>
+          <div class="topo-card-badge">✓</div>
+        </div>
+        <div class="topo-card" style="border-color:rgba(99,102,241,.22)">
+          <div class="topo-card-stripe" style="background:rgba(99,102,241,.7)"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">Legal → Agent AI</div><div class="topo-card-sub">Running · Delta</div></div>
+          <div class="topo-card-badge">✓</div>
+        </div>
+        <div class="topo-card" style="border-color:rgba(99,102,241,.22)">
+          <div class="topo-card-stripe" style="background:rgba(99,102,241,.7)"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">MFiles → Agent AI</div><div class="topo-card-sub">Running · Delta</div></div>
+          <div class="topo-card-badge">✓</div>
+        </div>
+        <div class="topo-card" style="border-color:rgba(99,102,241,.22)">
+          <div class="topo-card-stripe" style="background:rgba(99,102,241,.7)"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">SharePoint → AI</div><div class="topo-card-sub">Scheduled · 1h</div></div>
+          <div class="topo-card-badge">✓</div>
+        </div>
+        <div class="topo-card" style="border-color:rgba(99,102,241,.22)">
+          <div class="topo-card-stripe" style="background:rgba(99,102,241,.7)"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">FileNet → Agent AI</div><div class="topo-card-sub">Running · Incremental</div></div>
+          <div class="topo-card-badge">✓</div>
+        </div>
+        <div class="topo-card" style="border-color:rgba(99,102,241,.22)">
+          <div class="topo-card-stripe" style="background:rgba(99,102,241,.7)"></div>
+          <div class="topo-card-body"><div class="topo-card-icon">⚙️</div><div class="topo-card-name">Documentum → AI</div><div class="topo-card-sub">Running · Delta</div></div>
+          <div class="topo-card-badge">✓</div>
+        </div>
+      </div>
+
+      <!-- ── Arrow 2 ── -->
+      <div class="topo-arrow">
+        <div class="topo-arrow-line">
+          <div class="topo-dot" style="animation-delay:.4s"></div>
+          <div class="topo-dot d2" style="animation-delay:1.2s"></div>
+          <div class="topo-dot d3" style="animation-delay:2s"></div>
+        </div>
+        <div class="topo-arrow-lbl">index</div>
+      </div>
+
+      <!-- ── Col 3: Agent AI Index ── -->
+      <div class="topo-index-wrap">
+        <div class="topo-label">Search Index</div>
+        <div class="topo-index">
+          <div class="topo-index-ring"></div>
+          <div class="topo-index-ring"></div>
+          <div class="topo-index-ring"></div>
+          <span class="topo-index-icon">🔮</span>
+          <div class="topo-index-name">Agent AI Index</div>
+          <div class="topo-index-meta">384-dim Embeddings</div>
+          <div class="topo-index-chips">
+            <div class="topo-index-chip">BM25 + Hybrid Rank</div>
+            <div class="topo-index-chip">HNSW Vector Search</div>
+          </div>
+          <div class="chip chip-green" style="margin:8px auto 0;display:table;font-size:8.5px;padding:2px 8px">849M indexed</div>
+        </div>
+        <div style="padding:8px 10px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);text-align:center">
+          <div style="font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">Live Throughput</div>
+          <div style="font-size:18px;font-weight:800;color:#6ee7b7;letter-spacing:-.01em" id="topo-throughput">847</div>
+          <div style="font-size:8.5px;color:rgba(255,255,255,.3)">docs / min</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SCENE S_AGENTPIPE: PIPELINE ORCHESTRATION ── -->
+  <section class="scene aurora-agentpipe" id="s_agentpipe">
+    <div class="agp-header">
+      <div class="chip chip-purple anim-in delay-1">AI Pipeline Orchestration</div>
+      <div class="agp-title anim-in delay-2">Aggregate. Pipeline. Transform. <span style="background:linear-gradient(90deg,#c4b5fd,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Integrate.</span></div>
+      <div class="agp-desc anim-in delay-3">From raw enterprise repositories to intelligent actions — build content aggregations, apply Agent AI pipelines, run transformer steps, and integrate across your entire enterprise landscape.</div>
+    </div>
+
+    <div class="agp-body anim-in delay-4">
+
+      <!-- ── Stage 1: Source Repos ── -->
+      <div class="agp-stage">
+        <div class="agp-stage-label">① Source Repositories</div>
+        <div class="agp-node agp-node-src"><span>📁</span>Alfresco ECM</div>
+        <div class="agp-node agp-node-src"><span>☁️</span>SharePoint</div>
+        <div class="agp-node agp-node-src"><span>🔵</span>IBM FileNet</div>
+        <div class="agp-node agp-node-src"><span>🗂</span>M-Files DMS</div>
+        <div class="agp-node agp-node-src"><span>🟣</span>Documentum</div>
+        <div class="agp-node agp-node-src"><span>🗃</span>SQL / JDBC</div>
+      </div>
+
+      <!-- ── Connector 1 ── -->
+      <div class="agp-connector">
+        <div class="agp-conn-line agp-conn-line-1">
+          <div class="agp-particle agp-particle-c1"></div>
+          <div class="agp-particle agp-particle-c2 p2"></div>
+          <div class="agp-particle agp-particle-c1 p3"></div>
+        </div>
+        <div class="agp-conn-lbl">federate</div>
+      </div>
+
+      <!-- ── Stage 2: Content Aggregations ── -->
+      <div class="agp-stage">
+        <div class="agp-stage-label">② Content Aggregations</div>
+        <div style="height:18px"></div>
+        <div class="agp-node agp-node-agg"><span>⚖️</span>Legal Scope</div>
+        <div style="font-size:8.5px;color:rgba(255,255,255,.25);padding:2px 10px">Alfresco · M-Files · SharePoint</div>
+        <div style="height:8px"></div>
+        <div class="agp-node agp-node-agg"><span>👥</span>HR Scope</div>
+        <div style="font-size:8.5px;color:rgba(255,255,255,.25);padding:2px 10px">Alfresco · OneDrive · Exchange</div>
+        <div style="height:8px"></div>
+        <div class="agp-node agp-node-agg"><span>📊</span>Finance Scope</div>
+        <div style="font-size:8.5px;color:rgba(255,255,255,.25);padding:2px 10px">SQL · FileNet · Documentum</div>
+      </div>
+
+      <!-- ── Connector 2 ── -->
+      <div class="agp-connector">
+        <div class="agp-conn-line agp-conn-line-2">
+          <div class="agp-particle agp-particle-c2"></div>
+          <div class="agp-particle agp-particle-c3 p2"></div>
+          <div class="agp-particle agp-particle-c2 p3"></div>
+        </div>
+        <div class="agp-conn-lbl">pipeline</div>
+      </div>
+
+      <!-- ── Stage 3: Agent Pipeline Hub ── -->
+      <div class="agp-stage" style="justify-content:center">
+        <div class="agp-stage-label">③ Agent Features & APIs</div>
+        <div class="agp-hub">
+          <div class="agp-hub-ring"></div>
+          <div class="agp-hub-ring"></div>
+          <div class="agp-hub-ring"></div>
+          <span class="agp-hub-icon">🤖</span>
+          <div class="agp-hub-name">Agent AI Engine</div>
+          <div class="agp-hub-sub">Transformer Pipeline</div>
+          <div class="agp-hub-badges">
+            <div class="agp-hub-badge">REST &amp; GraphQL APIs</div>
+            <div class="agp-hub-badge">Webhook Triggers</div>
+            <div class="agp-hub-badge">Event Streaming</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Connector 3 ── -->
+      <div class="agp-connector">
+        <div class="agp-conn-line agp-conn-line-3">
+          <div class="agp-particle agp-particle-c3"></div>
+          <div class="agp-particle agp-particle-c4 p2"></div>
+          <div class="agp-particle agp-particle-c3 p3"></div>
+        </div>
+        <div class="agp-conn-lbl">transform</div>
+      </div>
+
+      <!-- ── Stage 4: Transformers ── -->
+      <div class="agp-stage">
+        <div class="agp-stage-label">④ Transformer Steps</div>
+        <div class="agp-node agp-node-trans">
+          <div class="agp-trans-num">1</div>
+          <span>🔍</span>OCR &amp; Extract
+        </div>
+        <div class="agp-node agp-node-trans">
+          <div class="agp-trans-num">2</div>
+          <span>🧠</span>AI Classify
+        </div>
+        <div class="agp-node agp-node-trans">
+          <div class="agp-trans-num">3</div>
+          <span>✨</span>Enrich &amp; Tag
+        </div>
+        <div class="agp-node agp-node-trans">
+          <div class="agp-trans-num">4</div>
+          <span>🔐</span>ACL Gate
+        </div>
+        <div class="agp-node agp-node-trans">
+          <div class="agp-trans-num">5</div>
+          <span>📤</span>Route &amp; Dispatch
+        </div>
+      </div>
+
+      <!-- ── Connector 4 ── -->
+      <div class="agp-connector">
+        <div class="agp-conn-line agp-conn-line-4">
+          <div class="agp-particle agp-particle-c4"></div>
+          <div class="agp-particle agp-particle-c5 p2"></div>
+          <div class="agp-particle agp-particle-c4 p3"></div>
+        </div>
+        <div class="agp-conn-lbl">integrate</div>
+      </div>
+
+      <!-- ── Stage 5: Enterprise Integrations ── -->
+      <div class="agp-stage">
+        <div class="agp-stage-label">⑤ Enterprise Integrations</div>
+        <div class="agp-node agp-node-out"><span>💼</span>CRM / Salesforce</div>
+        <div class="agp-node agp-node-out"><span>🏭</span>SAP / ERP</div>
+        <div class="agp-node agp-node-out"><span>💬</span>Teams / Slack</div>
+        <div class="agp-node agp-node-out"><span>🎫</span>ServiceNow</div>
+        <div class="agp-node agp-node-out"><span>📧</span>Email &amp; Alerts</div>
+      </div>
+
     </div>
   </section>
 
@@ -1859,7 +2152,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 /* ═══════════════════════════════════════════════════════
    SCENE MANAGER
 ═══════════════════════════════════════════════════════ */
-const scenes=['s0','s1','s_hub','s_flow','s2','s3','s4','s_semantic','s5','s6','s7','s9','s10','s11','s_fortress','s12','s_gallery','s8'];
+const scenes=['s0','s1','s_hub','s_flow','s2','s_agentpipe','s3','s4','s_semantic','s5','s6','s7','s9','s10','s11','s_fortress','s12','s_gallery','s8'];
 let current=0,transitioning=false;
 
 const progressEl=document.getElementById('scene-progress');
@@ -1932,6 +2225,8 @@ function onEnter(sid){
   if(sid==='s_semantic')initSemantic();
   if(sid==='s_fortress')initFortress();
   if(sid==='s1')initHero();
+  if(sid==='s2')initTopology();
+  if(sid==='s_agentpipe')initAgentPipe();
   if(sid==='s3')initJobs();
   if(sid==='s4')initSearch();
   if(sid==='s5')initCounters();
@@ -2085,6 +2380,46 @@ function initReports(){
   });
   const sb=document.getElementById('success-bar');
   if(sb)setTimeout(()=>{sb.style.width='90.9%'},600);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCENE 2: TOPOLOGY — live throughput counter
+═══════════════════════════════════════════════════════ */
+let topoTpTimer=null;
+function initTopology(){
+  clearInterval(topoTpTimer);
+  const el=document.getElementById('topo-throughput');
+  if(!el)return;
+  let base=820,dir=1;
+  topoTpTimer=setInterval(()=>{
+    base+=dir*(Math.floor(Math.random()*12)-3);
+    if(base>920)dir=-1;if(base<760)dir=1;
+    el.textContent=base;
+  },800);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCENE S_AGENTPIPE: PIPELINE ORCHESTRATION
+═══════════════════════════════════════════════════════ */
+let agpRunning=false;
+function initAgentPipe(){
+  /* Stagger-in the nodes */
+  const nodes=document.querySelectorAll('#s_agentpipe .agp-node,.agp-hub');
+  nodes.forEach((el,i)=>{
+    el.style.opacity='0';
+    el.style.transform='translateY(10px)';
+    el.style.transition='opacity .35s ease, transform .35s ease';
+    setTimeout(()=>{el.style.opacity='1';el.style.transform='translateY(0)';},i*55+350);
+  });
+  /* Kick the hub ring animation restart */
+  const hub=document.querySelector('#s_agentpipe .agp-hub');
+  if(hub){hub.classList.remove('agp-hub-active');void hub.offsetWidth;hub.classList.add('agp-hub-active');}
+  /* Pulse the connector particles */
+  const conns=document.querySelectorAll('#s_agentpipe .agp-conn-line');
+  conns.forEach((el,i)=>{
+    el.style.opacity='0';
+    setTimeout(()=>{el.style.transition='opacity .4s';el.style.opacity='1';},i*180+600);
+  });
 }
 
 /* ═══════════════════════════════════════════════════════
